@@ -25,3 +25,5 @@ object GeoUtils {
                 cos(Math.toRadians(lat2)) *
                 sin(dLon / 2).pow(2)
         return 2 * EARTH_RADIUS_KM * asin(sqrt(a))
+    }
+}

@@ -68,4 +68,5 @@ class RotatorRepository(private val bt: BluetoothManager) {
 
     fun park() = bt.send(EasyCommProtocol.park())
 
-    fun reboot() = bt.send(EasyCommProtocol.reb
+    fun reboot() = bt.send(EasyCommProtocol.reboot())
+}

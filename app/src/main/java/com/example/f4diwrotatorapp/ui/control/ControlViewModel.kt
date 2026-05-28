@@ -18,4 +18,13 @@ class ControlViewModel(application: Application) : AndroidViewModel(application)
 
     // ── Flux observables par le Fragment ──────────────────────────
     val state: StateFlow<RotatorState> = repository.state
-    val co
+
+    init {
+        btManager.connectByName()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        btManager.disconnect()
+    }
+}

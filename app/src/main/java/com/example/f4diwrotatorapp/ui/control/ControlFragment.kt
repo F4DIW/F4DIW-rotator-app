@@ -1,62 +1,67 @@
 package com.example.f4diwrotatorapp.ui.control
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.f4diwrotatorapp.R
-import com.example.f4diwrotatorapp.utils.GeoUtils
+import com.example.f4diwrotatorapp.databinding.FragmentControlBinding
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 class ControlFragment : Fragment() {
 
-    private val vm: ControlViewModel by viewModels()
+    private var _binding: FragmentControlBinding? = null
+    private val binding get() = _binding!!
 
-    // ── Views ─────────────────────────────────────────────────────
-    private lateinit var tvAz: TextView
-    private lateinit var tvEl: TextView
-    private lateinit var tvStatus: TextView
-    private lateinit var tvVersion: TextView
-    private lateinit var tvError: TextView
-    private lateinit var etAz: EditText
-    private lateinit var etEl: EditText
-    private lateinit var btnConnect: Button
-    private lateinit var btnGo: Button
-    private lateinit var btnStop: Button
-    private lateinit var btnPark: Button
-    private lateinit var btnReboot: Button
-    private lateinit var btnVersion: Button
-    private lateinit var indicatorBt: View
+    private val viewModel: ControlViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_control, container, false)
+    ): View {
+        _binding = FragmentControlBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindViews(view)
-        observeState()
-        setupButtons()
+
+        binding.btnGo.setOnClickListener {
+            val az = binding.etAz.text.toString().toFloatOrNull() ?: 0f
+            val el = binding.etEl.text.toString().toFloatOrNull() ?: 0f
+            viewModel.repository.sendAzEl(az, el)
+        }
+
+        binding.btnStop.setOnClickListener { viewModel.repository.stop() }
+        binding.btnPark.setOnClickListener { viewModel.repository.park() }
+        binding.btnReboot.setOnClickListener { viewModel.repository.reboot() }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.state.collectLatest { state ->
+                binding.tvAz.text = "AZ : ${state.az}"
+                binding.tvEl.text = "EL : ${state.el}"
+                binding.tvStatus.text = "Status : ${state.status}"
+                binding.tvVersion.text = state.version
+                
+                binding.indicatorBt.setBackgroundColor(
+                    if (state.connected) Color.GREEN else Color.RED
+                )
+                
+                binding.btnGo.isEnabled = state.connected
+                binding.btnStop.isEnabled = state.connected
+                binding.btnPark.isEnabled = state.connected
+                binding.btnReboot.isEnabled = state.connected
+            }
+        }
     }
 
-    private fun bindViews(view: View) {
-        tvAz       = view.findViewById(R.id.tvAz)
-        tvEl       = view.findViewById(R.id.tvEl)
-        tvStatus   = view.findViewById(R.id.tvStatus)
-        tvVersion  = view.findViewById(R.id.tvVersion)
-        tvError    = view.findViewById(R.id.tvError)
-        etAz       = view.findViewById(R.id.etAz)
-        etEl       = view.findViewById(R.id.etEl)
-        btnConnect = view.findViewById(R.id.btnConnect)
-        btnGo      = view.findViewById(R.id.btnGo)
-        btnStop    = view.findViewById(R.id.btnStop)
-        btnPark    = view.findViewById(R.id.btnPark)
-        btnReboot  = view.findViewById(R.id.btnReboot)
-        btnVersion = view.findViewById(R.id.btnVersion)
-        indicatorBt = view.findViewById(R.id.indica
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
