@@ -39,14 +39,13 @@ class RotatorRepository(private val bt: BluetoothManager) {
             }
         }
 
-        // Polling position toutes les 500 ms quand connecté
+        // Polling position toutes les 1000 ms quand connecté
         scope.launch {
             while (true) {
                 if (bt.connected.value) {
                     bt.send(EasyCommProtocol.getPosition())
-                    bt.send(EasyCommProtocol.getStatus())
                 }
-                delay(500L)
+                delay(1000L)
             }
         }
     }
@@ -69,4 +68,41 @@ class RotatorRepository(private val bt: BluetoothManager) {
     fun park() = bt.send(EasyCommProtocol.park())
 
     fun reboot() = bt.send(EasyCommProtocol.reboot())
+
+    fun getVersion() = bt.send(EasyCommProtocol.getVersion())
+
+    fun connect() = bt.connectByName()
+
+    // ── Calibration directe par Pas (Steps) ───────────────────────
+    
+    // Constantes basées sur le firmware F4DIW : Ratio 19.2, SPR 1600
+    private val STEPS_PER_DEGREE = (1600.0 * 19.2) / 360.0
+
+    fun calibrateAzimuth(offsetDegrees: Float) {
+        scope.launch {
+            val steps = (offsetDegrees * STEPS_PER_DEGREE).toLong()
+            // 1. On force le mouvement du nombre de pas calculés
+            bt.send("STEP_AZ $steps\n")
+            
+            // 2. On attend que le mouvement se termine (environ 2s)
+            delay(2000)
+            
+            // 3. On définit cette nouvelle position comme le ZÉRO
+            bt.send("SET_ZERO\n")
+        }
+    }
+
+    fun calibrateElevation(offsetDegrees: Float) {
+        scope.launch {
+            val steps = (offsetDegrees * STEPS_PER_DEGREE).toLong()
+            // 1. Mouvement forcé
+            bt.send("STEP_EL $steps\n")
+            
+            // 2. Pause
+            delay(2000)
+            
+            // 3. Définition du ZÉRO
+            bt.send("SET_ZERO\n")
+        }
+    }
 }

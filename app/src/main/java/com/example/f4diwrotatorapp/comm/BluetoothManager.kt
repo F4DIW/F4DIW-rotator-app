@@ -17,7 +17,7 @@ import java.util.UUID
 class BluetoothManager(private val context: Context) {
 
     companion object {
-        const val BT_NAME = "SatNOGS-Rotator"
+        const val BT_NAME = "F4DIW-Rotator"
         val UUID_SPP: UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB")
     }
 
@@ -36,12 +36,20 @@ class BluetoothManager(private val context: Context) {
     private val _incomingLines = MutableSharedFlow<String>()
     val incomingLines: SharedFlow<String> = _incomingLines.asSharedFlow()
 
-    fun connectByName(name: String = BT_NAME) {
-        val device = adapter?.bondedDevices?.find { it.name == name }
-        if (device != null) {
-            connect(device)
-        } else {
-            _lastError.value = "Device $name not found in paired devices"
+    fun connectByName(name: String? = null) {
+        if (_connected.value) return // Déjà connecté, on ne fait rien
+        try {
+            val targetName = name ?: context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+                .getString("bt_name", BT_NAME) ?: BT_NAME
+                
+            val device = adapter?.bondedDevices?.find { it.name == targetName }
+            if (device != null) {
+                connect(device)
+            } else {
+                _lastError.value = "Device $targetName not found in paired devices"
+            }
+        } catch (e: SecurityException) {
+            _lastError.value = "Bluetooth permission missing"
         }
     }
 
@@ -49,21 +57,36 @@ class BluetoothManager(private val context: Context) {
         listenJob?.cancel()
         listenJob = CoroutineScope(Dispatchers.IO).launch {
             try {
-                socket = device.createRfcommSocketToServiceRecord(UUID_SPP)
+                // Pour l'ESP32, le socket "Insecure" est beaucoup plus stable
+                socket = try {
+                    device.createInsecureRfcommSocketToServiceRecord(UUID_SPP)
+                } catch (e: Exception) {
+                    // Fallback ultime
+                    val method = device.javaClass.getMethod("createRfcommSocket", Int::class.javaPrimitiveType)
+                    method.invoke(device, 1) as BluetoothSocket
+                }
+                
                 socket?.connect()
 
                 reader = BufferedReader(InputStreamReader(socket?.inputStream))
                 writer = PrintWriter(socket?.outputStream, true)
 
+                // Petit délai pour laisser l'ESP32 se préparer
+                delay(500)
+
                 _connected.value = true
                 _lastError.value = null
 
                 while (isActive) {
-                    val line = reader?.readLine() ?: break
+                    val line = try {
+                        reader?.readLine()
+                    } catch (e: Exception) {
+                        null
+                    } ?: break
                     _incomingLines.emit(line)
                 }
-            } catch (e: IOException) {
-                _lastError.value = e.message
+            } catch (e: Exception) {
+                _lastError.value = "Erreur : ${e.message}"
             } finally {
                 disconnect()
             }
@@ -87,7 +110,8 @@ class BluetoothManager(private val context: Context) {
     fun send(data: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                writer?.println(data)
+                writer?.print(data) // On utilise print car le protocole contient déjà \n
+                writer?.flush()
             } catch (e: Exception) {
                 _lastError.value = "Send failed: ${e.message}"
             }

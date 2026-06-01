@@ -17,7 +17,7 @@ class ControlFragment : Fragment() {
     private var _binding: FragmentControlBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: ControlViewModel by viewModels()
+    private val viewModel: ControlViewModel by viewModels({ requireActivity() })
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,13 +39,13 @@ class ControlFragment : Fragment() {
 
         binding.btnStop.setOnClickListener { viewModel.repository.stop() }
         binding.btnPark.setOnClickListener { viewModel.repository.park() }
-        binding.btnReboot.setOnClickListener { viewModel.repository.reboot() }
+        binding.btnConnect.setOnClickListener { viewModel.repository.connect() }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
-                binding.tvAz.text = "AZ : ${state.az}"
-                binding.tvEl.text = "EL : ${state.el}"
-                binding.tvStatus.text = "Status : ${state.status}"
+                binding.tvAz.text = "${state.az}°"
+                binding.tvEl.text = "${state.el}°"
+                binding.tvStatus.text = if (state.connected) "CONNECTÉ" else "DÉCONNECTÉ"
                 binding.tvVersion.text = state.version
                 
                 binding.indicatorBt.setBackgroundColor(
@@ -55,7 +55,18 @@ class ControlFragment : Fragment() {
                 binding.btnGo.isEnabled = state.connected
                 binding.btnStop.isEnabled = state.connected
                 binding.btnPark.isEnabled = state.connected
-                binding.btnReboot.isEnabled = state.connected
+                binding.btnConnect.isEnabled = !state.connected
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.repository.lastError.collectLatest { error ->
+                if (error != null) {
+                    binding.tvError.text = error
+                    binding.tvError.visibility = View.VISIBLE
+                } else {
+                    binding.tvError.visibility = View.GONE
+                }
             }
         }
     }
