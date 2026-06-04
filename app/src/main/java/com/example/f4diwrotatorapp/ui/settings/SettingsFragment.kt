@@ -48,8 +48,8 @@ class SettingsFragment : Fragment() {
     }
 
     private fun showLanguageDialog() {
-        val languages = arrayOf("Français", "English")
-        val codes = arrayOf("fr", "en")
+        val languages = arrayOf("Français", "English", "Русский")
+        val codes = arrayOf("fr", "en", "ru")
 
         MaterialAlertDialogBuilder(requireContext(), R.style.Theme_F4DIWRotatorApp_Dialog)
             .setTitle(R.string.settings_language)

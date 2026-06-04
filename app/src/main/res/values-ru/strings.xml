@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">F4DIW Rotator App</string>
+    <string name="nav_control">Управление</string>
+    <string name="nav_settings">Настройки</string>
+    <string name="title_settings">НАСТРОЙКИ</string>
+    <string name="settings_bluetooth">Bluetooth</string>
+    <string name="settings_bluetooth_sub">Выбор устройства</string>
+    <string name="settings_calibration">Калибровка</string>
+    <string name="settings_calibration_sub">Установка начального положения (ноль)</string>
+    <string name="settings_language">Язык</string>
+    <string name="settings_language_sub">Выбрать Français, English или Русский</string>
+    <string name="status_connected">ПОДКЛЮЧЕНО</string>
+    <string name="status_disconnected">ОТКЛЮЧЕНО</string>
+    <string name="pos_current">ТЕКУЩЕЕ ПОЛОЖЕНИЕ</string>
+    <string name="btn_send">ОТПРАВИТЬ</string>
+    <string name="btn_stop">СТОП</string>
+    <string name="btn_park">ПАРКОВКА</string>
+    <string name="btn_connect">ПОДКЛЮЧЕНИЕ</string>
+    <string name="jog_title">ДЖОГ И КАЛИБРОВКА</string>
+    <string name="jog_sub">РУЧНОЕ ПЕРЕМЕЩЕНИЕ (ДЖОГ)</string>
+    <string name="jog_instructions">1. Используйте стрелки для физического выравнивания антенны.\n2. Нажмите SET ZERO, чтобы установить это положение как новое 0.0°.</string>
+</resources>
