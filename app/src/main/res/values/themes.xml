@@ -13,6 +13,13 @@
         <item name="android:statusBarColor">@color/bg_main</item>
         <!-- Background -->
         <item name="android:windowBackground">@color/bg_main</item>
+        <item name="alertDialogTheme">@style/Theme.F4DIWRotatorApp.Dialog</item>
+    </style>
+
+    <style name="Theme.F4DIWRotatorApp.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@color/bg_card</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorAccent">@color/accent_blue</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.F4DIWRotatorApp">

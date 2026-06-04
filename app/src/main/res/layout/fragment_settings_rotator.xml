@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="JOG &amp; CALIBRATION"
+            android:text="@string/jog_title"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DÉPLACEMENT MANUEL (JOG)"
+            android:text="@string/jog_sub"
             android:textColor="@color/label_blue"
             android:textSize="12sp"
             android:gravity="center"
@@ -132,7 +132,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1. Utilisez les flèches pour aligner physiquement votre antenne.\n2. Appuyez sur SET ZERO pour définir cette position comme le nouveau 0.0°."
+                    android:text="@string/jog_instructions"
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp" />
             </LinearLayout>

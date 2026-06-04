@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">F4DIW Rotator App</string>
+    <string name="nav_control">Control</string>
+    <string name="nav_settings">Settings</string>
+    <string name="title_settings">SETTINGS</string>
+    <string name="settings_bluetooth">Bluetooth</string>
+    <string name="settings_bluetooth_sub">Select device</string>
+    <string name="settings_calibration">Calibration</string>
+    <string name="settings_calibration_sub">Set initial position (zero)</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_sub">Choose Français or English</string>
+    <string name="status_connected">CONNECTED</string>
+    <string name="status_disconnected">DISCONNECTED</string>
+    <string name="pos_current">CURRENT POSITION</string>
+    <string name="btn_send">SEND</string>
+    <string name="btn_stop">STOP</string>
+    <string name="btn_park">PARK</string>
+    <string name="btn_connect">CONNECT</string>
+    <string name="jog_title">JOG &amp; CALIBRATION</string>
+    <string name="jog_sub">MANUAL MOVEMENT (JOG)</string>
+    <string name="jog_instructions">1. Use arrows to physically align your antenna.\n2. Press SET ZERO to define this position as the new 0.0°.</string>
+</resources>
