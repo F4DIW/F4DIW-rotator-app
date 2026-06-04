@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0A0A0A">
+    android:background="@color/bg_main">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="16dp"
-            app:cardBackgroundColor="#1A1A1A"
+            app:cardBackgroundColor="@color/bg_card"
             app:strokeWidth="0dp"
             android:layout_marginBottom="20dp">
 
@@ -31,14 +31,14 @@
                     android:id="@+id/indicatorBt"
                     android:layout_width="12dp"
                     android:layout_height="12dp"
-                    android:background="@android:color/holo_red_dark" />
+                    android:background="@color/status_disconnected" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="F4DIW ROTATOR"
-                    android:textColor="#E0E0E0"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:letterSpacing="0.1"
                     android:textStyle="bold"
@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="DÉCONNECTÉ"
-                    android:textColor="#AAAAAA"
+                    android:textColor="@color/text_secondary"
                     android:textSize="12sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -60,8 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="24dp"
-            app:cardBackgroundColor="#121212"
-            app:strokeColor="#333333"
+            app:cardBackgroundColor="@color/bg_card"
+            app:strokeColor="@color/grid_blue"
             app:strokeWidth="1dp"
             android:layout_marginBottom="20dp">
 
@@ -76,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="POSITION ACTUELLE"
-                    android:textColor="#777777"
+                    android:textColor="@color/label_blue"
                     android:textSize="12sp"
                     android:layout_marginBottom="12dp"
                     android:letterSpacing="0.1" />
@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="000.0°"
-                    android:textColor="#ebbb27"
+                    android:textColor="@color/white"
                     android:textSize="56sp"
                     android:fontFamily="monospace"
                     android:textStyle="bold" />
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="00.0°"
-                    android:textColor="#ebbb27"
+                    android:textColor="@color/white"
                     android:textSize="48sp"
                     android:fontFamily="monospace"
                     android:textStyle="bold" />
@@ -105,7 +105,7 @@
                     android:id="@+id/tvVersion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#555555"
+                    android:textColor="@color/label_blue"
                     android:textSize="10sp"
                     android:layout_marginTop="8dp" />
             </LinearLayout>
@@ -124,10 +124,10 @@
                 android:layout_weight="1"
                 android:hint="AZ (0-360°)"
                 android:layout_marginEnd="10dp"
-                app:hintTextColor="#ebbb27"
-                app:boxStrokeColor="#ebbb27"
-                app:boxBackgroundColor="#1A1A1A"
-                android:textColorHint="#AAAAAA"
+                app:hintTextColor="@color/white"
+                app:boxStrokeColor="@color/white"
+                app:boxBackgroundColor="@color/bg_card"
+                android:textColorHint="@color/text_secondary"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
@@ -139,7 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -148,10 +148,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="EL (0-90°)"
-                app:hintTextColor="#ebbb27"
-                app:boxStrokeColor="#ebbb27"
-                app:boxBackgroundColor="#1A1A1A"
-                android:textColorHint="#AAAAAA"
+                app:hintTextColor="@color/white"
+                app:boxStrokeColor="@color/white"
+                app:boxBackgroundColor="@color/bg_card"
+                android:textColorHint="@color/text_secondary"
                 app:boxCornerRadiusTopStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
@@ -163,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -176,8 +176,8 @@
             android:text="ENVOYER"
             android:enabled="false"
             app:cornerRadius="16dp"
-            android:backgroundTint="#ebbb27"
-            android:textColor="#000000"
+            android:backgroundTint="@color/status_connected"
+            android:textColor="@color/bg_main"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginBottom="12dp" />
@@ -195,7 +195,7 @@
                 android:text="STOP"
                 android:enabled="false"
                 app:cornerRadius="12dp"
-                android:backgroundTint="#FF5252"
+                android:backgroundTint="@color/status_disconnected"
                 android:layout_marginEnd="6dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -206,8 +206,10 @@
                 android:text="PARK"
                 android:enabled="false"
                 app:cornerRadius="12dp"
-                android:backgroundTint="#333333"
-                android:textColor="#FFFFFF"
+                android:backgroundTint="@color/bg_card"
+                android:textColor="@color/white"
+                app:strokeColor="@color/white"
+                app:strokeWidth="1dp"
                 android:layout_marginStart="6dp" />
         </LinearLayout>
 
@@ -218,9 +220,9 @@
             android:layout_height="56dp"
             android:text="CONNEXION"
             app:cornerRadius="16dp"
-            android:backgroundTint="#1A1A1A"
-            android:textColor="#69FF47"
-            app:strokeColor="#69FF47"
+            android:backgroundTint="@color/bg_card"
+            android:textColor="@color/white"
+            app:strokeColor="@color/status_connected"
             app:strokeWidth="1dp"
             android:layout_marginTop="32dp" />
 
@@ -228,7 +230,7 @@
             android:id="@+id/tvError"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#FF5252"
+            android:textColor="@color/status_disconnected"
             android:textSize="13sp"
             android:gravity="center"
             android:layout_marginTop="16dp"

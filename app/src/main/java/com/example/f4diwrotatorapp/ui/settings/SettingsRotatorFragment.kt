@@ -17,9 +17,6 @@ class SettingsRotatorFragment : Fragment() {
 
     private val viewModel: ControlViewModel by viewModels({ requireActivity() })
 
-    private var isNegativeAz = false
-    private var isNegativeEl = false
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,29 +28,36 @@ class SettingsRotatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnSignAz.setOnClickListener {
-            isNegativeAz = !isNegativeAz
-            binding.btnSignAz.text = if (isNegativeAz) "-" else "+"
+        // ── Jog Commands (ML, MR, MU, MD) ──
+        binding.btnJogUp.setOnClickListener {
+            viewModel.repository.jogElUp()
+            showToast("Élévation +1.0°")
         }
 
-        binding.btnSignEl.setOnClickListener {
-            isNegativeEl = !isNegativeEl
-            binding.btnSignEl.text = if (isNegativeEl) "-" else "+"
+        binding.btnJogDown.setOnClickListener {
+            viewModel.repository.jogElDown()
+            showToast("Élévation -1.0°")
         }
 
-        binding.btnSetZeroAz.setOnClickListener {
-            val value = binding.etCalibAz.text.toString().toFloatOrNull() ?: 0f
-            val offset = if (isNegativeAz) -value else value
-            viewModel.repository.calibrateAzimuth(offset)
-            Toast.makeText(requireContext(), "Calib Azimut: $offset°", Toast.LENGTH_SHORT).show()
+        binding.btnJogLeft.setOnClickListener {
+            viewModel.repository.jogAzLeft()
+            showToast("Azimut -1.0°")
         }
 
-        binding.btnSetZeroEl.setOnClickListener {
-            val value = binding.etCalibEl.text.toString().toFloatOrNull() ?: 0f
-            val offset = if (isNegativeEl) -value else value
-            viewModel.repository.calibrateElevation(offset)
-            Toast.makeText(requireContext(), "Calib Élévation: $offset°", Toast.LENGTH_SHORT).show()
+        binding.btnJogRight.setOnClickListener {
+            viewModel.repository.jogAzRight()
+            showToast("Azimut +1.0°")
         }
+
+        // ── Calibration (RST) ──
+        binding.btnReset.setOnClickListener {
+            viewModel.repository.reset()
+            showToast("Position calibrée à 0.0°")
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

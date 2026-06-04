@@ -1,0 +1,62 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="280dp"
+    android:height="280dp"
+    android:viewportWidth="280"
+    android:viewportHeight="280">
+
+    <!-- Scaling wrapper to fit the circular safe zone -->
+    <group
+        android:pivotX="140"
+        android:pivotY="140"
+        android:scaleX="0.75"
+        android:scaleY="0.75">
+
+        <!-- F4DIW Top Text (Path representation) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M110,35h6v2h-4v3h4v2h-4v5h-2V35z M118,35h2v6h2v-6h2v12h-2v-4h-2v4h-2V35z M126,35h6v2h-4v3h4v2h-4v5h-2V35z M134,35h6v2h-4v3h4v2h-4v5h-2V35z M142,35h2l2,7l2,-7h2v12h-2v-8l-2,8h-1l-2,-8v8h-2V35z"/>
+
+        <!-- Radar Background Glow -->
+        <path
+            android:fillColor="#1A60D0"
+            android:fillAlpha="0.1"
+            android:pathData="M140,140m-100,0a100,100 0,1 1,200 0a100,100 0,1 1,-200 0"/>
+
+        <!-- Polar Grid Rings -->
+        <path
+            android:strokeWidth="0.8"
+            android:pathData="M140,140m-90,0a90,90 0,1 1,180 0a90,90 0,1 1,-180 0 M140,140m-65,0a65,65 0,1 1,130 0a65,65 0,1 1,-130 0 M140,140m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"
+            android:fillColor="#00000000"
+            android:strokeColor="#4A9EFF"
+            android:strokeAlpha="0.2"/>
+
+        <!-- Cardinal Points -->
+        <path android:fillColor="#4A9EFF" android:fillAlpha="0.6" android:pathData="M138,48h4v6h-4z M232,138h6v4h-6z M138,228h4v6h-4z M42,138h6v4h-6z"/>
+
+        <!-- Azimuth Reading: 127° -->
+        <path
+            android:fillColor="#4AAFFF"
+            android:pathData="M125,125h3v15h-3z M132,125h10v2l-7,11h7v2h-10v-2l7,-11h-7z M145,125a3,3 0,1 1,0.001,0zM145,127a1,1 0,1 0,-0.001,0z"/>
+
+        <!-- Beam Line -->
+        <path
+            android:strokeWidth="2"
+            android:pathData="M140,140 L190,90"
+            android:strokeColor="#4AAFFF"
+            android:strokeAlpha="0.6"/>
+
+        <!-- Yagi Antenna Graphic -->
+        <group android:translateX="180" android:translateY="160" android:rotation="20">
+            <path android:strokeWidth="3" android:pathData="M-30,0L30,0" android:strokeColor="#4A9EFF" android:strokeAlpha="0.8"/>
+            <path android:strokeWidth="2" android:pathData="M15,-12L15,12" android:strokeColor="#80C8FF"/>
+            <path android:strokeWidth="2" android:pathData="M0,-18L0,18" android:strokeColor="#FFFFFF"/>
+            <path android:strokeWidth="2" android:pathData="M-15,-22L-15,22" android:strokeColor="#4A80C0"/>
+        </group>
+
+        <!-- ROTATOR Text (Bottom) -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M110,245h5a3,3 0,0 1,0,6h-3v4h-2V245zM112,247v2h3a1,1 0,0 0,0,-2z M120,245a5,5 0,1 1,0,10a5,5 0,0 1,0,-10zM120,247a3,3 0,1 0,0,6a3,3 0,0 0,0,-6z M132,245h8v2h-3v8h-2v-8h-3V245z M142,245h6l1,10h-2l-0.2,-2h-2.6l-0.2,2h-2l1,-10zM144.5,247l-1,4h2l-1,-4z"/>
+
+    </group>
+</vector>

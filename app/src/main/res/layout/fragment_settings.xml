@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#0A0A0A"
+    android:background="@color/bg_main"
     android:padding="20dp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="RÉGLAGES"
-        android:textColor="#E0E0E0"
+        android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
         android:letterSpacing="0.1"
@@ -24,7 +25,9 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:backgroundTint="#1A1A1A">
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/bg_card"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +40,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@android:drawable/stat_sys_data_bluetooth"
-                android:tint="#00E5FF" />
+                app:tint="@color/white" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -50,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bluetooth"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -58,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sélectionner le périphérique"
-                    android:textColor="#AAAAAA"
+                    android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
@@ -71,7 +74,9 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:backgroundTint="#1A1A1A">
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/bg_card"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,7 +89,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@android:drawable/ic_menu_compass"
-                android:tint="#ebbb27" />
+                app:tint="@color/white" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -97,7 +102,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Calibration"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -105,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Régler la position initiale (zéro)"
-                    android:textColor="#AAAAAA"
+                    android:textColor="@color/text_secondary"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>

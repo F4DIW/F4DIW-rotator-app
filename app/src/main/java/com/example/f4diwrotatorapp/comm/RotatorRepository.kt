@@ -73,7 +73,14 @@ class RotatorRepository(private val bt: BluetoothManager) {
 
     fun connect() = bt.connectByName()
 
-    // ── Calibration directe par Pas (Steps) ───────────────────────
+    // ── Jog & Calibration (Nouveau système) ───────────────────────
+    fun jogAzLeft() = bt.send(EasyCommProtocol.jogAzLeft())
+    fun jogAzRight() = bt.send(EasyCommProtocol.jogAzRight())
+    fun jogElUp() = bt.send(EasyCommProtocol.jogElUp())
+    fun jogElDown() = bt.send(EasyCommProtocol.jogElDown())
+    fun reset() = bt.send(EasyCommProtocol.reset())
+
+    // ── Ancienne Calibration directe par Pas (Steps) ──────────────
     
     // Constantes basées sur le firmware F4DIW : Ratio 19.2, SPR 1600
     private val STEPS_PER_DEGREE = (1600.0 * 19.2) / 360.0

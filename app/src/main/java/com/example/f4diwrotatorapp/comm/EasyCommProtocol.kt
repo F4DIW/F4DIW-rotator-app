@@ -17,6 +17,13 @@ object EasyCommProtocol {
     fun getVersion() = "VE\n"
     fun park() = "P 0.0 0.0\n"
     fun reboot() = "RB\n"
+    
+    // ── Jog & Calibration (F4DIW Specific) ────────────────────────
+    fun jogAzLeft() = "ML\n"
+    fun jogAzRight() = "MR\n"
+    fun jogElUp() = "MU\n"
+    fun jogElDown() = "MD\n"
+    fun reset() = "RST\n"
 
     private fun Float.format() = String.format(java.util.Locale.US, "%.1f", this)
 
