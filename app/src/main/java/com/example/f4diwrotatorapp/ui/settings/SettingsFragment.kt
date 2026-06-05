@@ -74,7 +74,6 @@ class SettingsFragment : Fragment() {
         if (ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             
-            // On demande la permission si elle est manquante
             ActivityCompat.requestPermissions(requireActivity(), 
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION), 
                 2)
@@ -82,20 +81,17 @@ class SettingsFragment : Fragment() {
         }
 
         val fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
-        
-        // On essaie d'abord de récupérer la dernière position connue (rapide)
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             if (location != null) {
                 saveAndDisplayLocation(location.latitude, location.longitude)
             } else {
-                // Si la dernière position est nulle, on demande une mise à jour fraîche (plus lent mais précis)
                 Toast.makeText(requireContext(), "Recherche du signal GPS...", Toast.LENGTH_SHORT).show()
                 val priority = com.google.android.gms.location.Priority.PRIORITY_HIGH_ACCURACY
                 fusedLocationClient.getCurrentLocation(priority, null).addOnSuccessListener { freshLocation ->
                     if (freshLocation != null) {
                         saveAndDisplayLocation(freshLocation.latitude, freshLocation.longitude)
                     } else {
-                        Toast.makeText(requireContext(), "GPS indisponible. Vérifiez qu'il est activé.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "GPS indisponible", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -136,14 +132,16 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setLocale(languageCode: String) {
+        // Enregistre dans les préférences pour le prochain démarrage
+        val prefs = requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
+        prefs.edit().putString("language_code", languageCode).apply()
+
+        // Applique dynamiquement
         val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
         
-        // On sauvegarde manuellement pour la persistance
-        val prefs = requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
-        prefs.edit().putString("language_code", languageCode).apply()
-        
-        // Force la recréation pour appliquer les changements immédiatement sur tous les écrans
+        // Sur Android 13+ (Pixel 7), l'activité est recréée automatiquement par setApplicationLocales
+        // mais on peut forcer pour être sûr sur les versions intermédiaires
         requireActivity().recreate()
     }
 
