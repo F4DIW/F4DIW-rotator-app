@@ -25,6 +25,9 @@ class PlanetTrackingFragment : Fragment() {
 
     private var planetName: String = ""
     private var isTracking = false
+    private var currentAz: Float = 0f
+    private var currentEl: Float = 0f
+
     private val handler = Handler(Looper.getMainLooper())
     private val updateTask = object : Runnable {
         override fun run() {
@@ -89,6 +92,9 @@ class PlanetTrackingFragment : Fragment() {
             val equ = equator(body, time, obs, EquatorEpoch.OfDate, Aberration.Corrected)
             val hor = horizon(time, obs, equ.ra, equ.dec, Refraction.Normal)
 
+            currentAz = hor.azimuth.toFloat()
+            currentEl = hor.altitude.toFloat()
+
             binding.tvAz.text = "AZ: %.1f°".format(hor.azimuth)
             binding.tvEl.text = "EL: %.1f°".format(hor.altitude)
 
@@ -105,11 +111,7 @@ class PlanetTrackingFragment : Fragment() {
     }
 
     private fun sendPositionToRotator() {
-        val azStr = binding.tvAz.text.toString().filter { it.isDigit() || it == '.' }
-        val elStr = binding.tvEl.text.toString().filter { it.isDigit() || it == '.' }
-        val az = azStr.toFloatOrNull() ?: 0f
-        val el = elStr.toFloatOrNull() ?: 0f
-        viewModel.repository.sendAzEl(az, el)
+        viewModel.repository.sendAzEl(currentAz, currentEl)
     }
 
     override fun onDestroyView() {
