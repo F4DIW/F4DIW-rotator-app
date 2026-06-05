@@ -63,7 +63,7 @@ if (SerialBT.available()) {
 This project uses and thanks the following sources:
 - **NASA Scientific Visualization Studio (SVS)**: For high-resolution planetary visuals.
 - **Astronomy Engine (Don Cross)**: For the high-precision astronomical calculation library.
-- **Look4Sat (Artyom Bishop)**: For visual inspiration and the excellent satellite prediction app.
+- **Look4Sat (Arty Bishop)**: For visual inspiration and the excellent satellite prediction app.
 - **SatNOGS**: For rotator protocol standards.
 
 ## 🛠️ Technical Stack
@@ -134,7 +134,7 @@ if (SerialBT.available()) {
 Ce projet utilise et remercie les sources suivantes :
 - **NASA Scientific Visualization Studio (SVS)** : Pour les visuels planétaires haute résolution.
 - **Astronomy Engine (Don Cross)** : Pour la bibliothèque de calculs astronomiques de haute précision.
-- **Look4Sat (Artyom Bishop)** : Pour l'inspiration visuelle et l'excellente application de prédiction satellite.
+- **Look4Sat (Arty Bishop)** : Pour l'inspiration visuelle et l'excellente application de prédiction satellite.
 - **SatNOGS** : Pour les standards de protocole rotateur.
 
 ## 🛠️ Stack Technique
