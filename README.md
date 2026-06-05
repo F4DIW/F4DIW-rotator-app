@@ -23,7 +23,14 @@ Modern Android application for controlling the **F4DIW** satellite antenna rotat
 - **Robust Bluetooth**: Secure ESP32 connection management, dynamic device selection in settings.
 
 ## 📸 Overviews
-*(Screenshots to be added in the /docs/screenshots folder)*
+
+<p align="center">
+  <img src="docs/screenshots/home.png" width="200" title="Home Hub">
+  <img src="docs/screenshots/control.png" width="200" title="Manual Control">
+  <img src="docs/screenshots/planets.png" width="200" title="Planetary Tracking">
+  <img src="docs/screenshots/settings.png" width="200" title="Settings & GPS">
+</p>
+
 - **Home**: Central hub with different activities.
 - **Control**: Manual pilot interface with position feedback.
 - **Planets**: List of celestial bodies with real NASA visuals.
@@ -94,7 +101,14 @@ Application Android moderne pour le contrôle du rotateur d'antenne satellite **
 - **Bluetooth Robuste** : Gestion sécurisée des connexions ESP32, sélection dynamique du périphérique dans les réglages.
 
 ## 📸 Aperçus
-*(Captures d'écran à ajouter dans le dossier /docs/screenshots)*
+
+<p align="center">
+  <img src="docs/screenshots/home.png" width="200" title="Accueil">
+  <img src="docs/screenshots/control.png" width="200" title="Contrôle Manuel">
+  <img src="docs/screenshots/planets.png" width="200" title="Tracking Planétaire">
+  <img src="docs/screenshots/settings.png" width="200" title="Réglages & GPS">
+</p>
+
 - **Accueil** : Hub central avec les différentes activités.
 - **Contrôle** : Interface de pilotage manuel avec retour de position.
 - **Planètes** : Liste des astres avec visuels réels de la NASA.
