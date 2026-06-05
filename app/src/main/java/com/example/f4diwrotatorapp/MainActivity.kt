@@ -7,9 +7,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.f4diwrotatorapp.databinding.ActivityMainBinding
-import com.example.f4diwrotatorapp.ui.control.ControlFragment
+import com.example.f4diwrotatorapp.ui.home.HomeFragment
 import com.example.f4diwrotatorapp.ui.settings.SettingsFragment
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             try {
                 when (item.itemId) {
-                    R.id.nav_control -> {
-                        replaceFragment(ControlFragment(), "control")
+                    R.id.nav_home -> {
+                        replaceFragment(HomeFragment(), "home")
                         true
                     }
                     R.id.nav_settings -> {
@@ -41,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedInstanceState == null) {
-            binding.bottomNavigation.selectedItemId = R.id.nav_control
+            binding.bottomNavigation.selectedItemId = R.id.nav_home
         }
     }
 

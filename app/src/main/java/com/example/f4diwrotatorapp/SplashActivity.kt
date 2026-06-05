@@ -17,8 +17,9 @@ class SplashActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
 
         Handler(Looper.getMainLooper()).postDelayed({
+            // Le SplashActivity renvoie maintenant vers la MainActivity qui affichera le HomeFragment par défaut
             startActivity(Intent(this, MainActivity::class.java))
             finish()
-        }, 4000) // 4 secondes
+        }, 4000)
     }
 }

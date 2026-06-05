@@ -1,11 +1,9 @@
 # F4DIW Rotator App 📡🛰️
 
-Application Android moderne pour le contrôle du rotateur d'antenne satellite **F4DIW**. Cette application communique via Bluetooth Classic (SPP) avec un firmware basé sur ESP32 (Wemos D1 R32) et supporte les protocoles Look4Sat et EasyComm II.
+Application Android pour le contrôle du rotateur d'antenne satellite **F4DIW**. Cette application communique via Bluetooth Classic (SPP) avec un firmware basé sur ESP32 (Wemos D1 R32) et supporte les protocoles Look4Sat et EasyComm II.
 
 ## 🚀 Caractéristiques principales
 
-- **Interface High-Tech** : Design sombre inspiré de Look4Sat avec un rendu "Radar" et une typographie monospace pour les coordonnées.
-- **Splash Screen Premium** : Écran de démarrage plein écran (4s) avec logo et radar intégrés.
 - **Contrôle Temps Réel** : Affichage AZ/EL en gros caractères avec mise à jour automatique via polling Bluetooth.
 - **Système de Calibration Jog & Reset** : 
   - Déplacement manuel par pavé directionnel (Jog) de +/- 1.0°.

@@ -1,0 +1,53 @@
+package com.example.f4diwrotatorapp.ui.home
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.example.f4diwrotatorapp.R
+import com.example.f4diwrotatorapp.databinding.FragmentHomeBinding
+import com.example.f4diwrotatorapp.ui.control.ControlFragment
+
+class HomeFragment : Fragment() {
+
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cardManual.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ControlFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
+        binding.cardPlanets.setOnClickListener {
+            Toast.makeText(requireContext(), "Bientôt disponible : Tracking Planétaire", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.cardAdsb.setOnClickListener {
+            Toast.makeText(requireContext(), "Bientôt disponible : Tracking ADS-B", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.cardRadiosonde.setOnClickListener {
+            Toast.makeText(requireContext(), "Bientôt disponible : Tracking Radiosondes", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

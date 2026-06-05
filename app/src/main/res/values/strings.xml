@@ -1,14 +1,27 @@
 <resources>
     <string name="app_name">F4DIW Rotator App</string>
-    <string name="nav_control">Contrôle</string>
+    <string name="nav_home">Accueil</string>
     <string name="nav_settings">Réglages</string>
+
+    <!-- Hub Activities -->
+    <string name="title_home">ACTIVITÉS</string>
+    <string name="activity_manual">Contrôle Manuel</string>
+    <string name="activity_manual_sub">Pilotage direct AZ/EL</string>
+    <string name="activity_planets">Planètes</string>
+    <string name="activity_planets_sub">Tracking Système Solaire</string>
+    <string name="activity_adsb">ADS-B</string>
+    <string name="activity_adsb_sub">Tracking Avions</string>
+    <string name="activity_radiosonde">Radiosondes</string>
+    <string name="activity_radiosonde_sub">Tracking Ballons Météo</string>
+
     <string name="title_settings">RÉGLAGES</string>
     <string name="settings_bluetooth">Bluetooth</string>
     <string name="settings_bluetooth_sub">Sélectionner le périphérique</string>
     <string name="settings_calibration">Calibration</string>
     <string name="settings_calibration_sub">Régler la position initiale (zéro)</string>
     <string name="settings_language">Langue</string>
-    <string name="settings_language_sub">Choisir Français ou English</string>
+    <string name="settings_language_sub">Choisir Français, English ou Русский</string>
+
     <string name="status_connected">CONNECTÉ</string>
     <string name="status_disconnected">DÉCONNECTÉ</string>
     <string name="pos_current">POSITION ACTUELLE</string>

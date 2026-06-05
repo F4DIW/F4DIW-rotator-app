@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">F4DIW Rotator App</string>
-    <string name="nav_control">Управление</string>
+    <string name="nav_home">Главная</string>
     <string name="nav_settings">Настройки</string>
+
+    <!-- Hub Activities -->
+    <string name="title_home">АКТИВНОСТЬ</string>
+    <string name="activity_manual">Ручное управление</string>
+    <string name="activity_manual_sub">Прямое управление AZ/EL</string>
+    <string name="activity_planets">Планеты</string>
+    <string name="activity_planets_sub">Трекинг Солнечной системы</string>
+    <string name="activity_adsb">ADS-B</string>
+    <string name="activity_adsb_sub">Трекинг самолетов</string>
+    <string name="activity_radiosonde">Радиозонды</string>
+    <string name="activity_radiosonde_sub">Трекинг метеозондов</string>
+
     <string name="title_settings">НАСТРОЙКИ</string>
     <string name="settings_bluetooth">Bluetooth</string>
     <string name="settings_bluetooth_sub">Выбор устройства</string>
@@ -9,6 +21,7 @@
     <string name="settings_calibration_sub">Установка начального положения (ноль)</string>
     <string name="settings_language">Язык</string>
     <string name="settings_language_sub">Выбрать Français, English или Русский</string>
+
     <string name="status_connected">ПОДКЛЮЧЕНО</string>
     <string name="status_disconnected">ОТКЛЮЧЕНО</string>
     <string name="pos_current">ТЕКУЩЕЕ ПОЛОЖЕНИЕ</string>
