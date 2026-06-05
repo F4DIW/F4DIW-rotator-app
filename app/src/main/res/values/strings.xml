@@ -7,6 +7,8 @@
     <string name="title_home">ACTIVITIES</string>
     <string name="activity_manual">Manual Control</string>
     <string name="activity_manual_sub">Direct AZ/EL control</string>
+    <string name="activity_look4sat">Look4Sat</string>
+    <string name="activity_look4sat_sub">Pass Predictor &amp; Tracker</string>
     <string name="activity_planets">Planets</string>
     <string name="activity_planets_sub">Solar System Tracking</string>
     <string name="activity_adsb">ADS-B</string>
@@ -40,4 +42,22 @@
     <string name="jog_instructions">1. Use arrows to physically align your antenna.\n2. Press SET ZERO to define this position as the new 0.0°.</string>
     <string name="label_az">AZ (0-360°)</string>
     <string name="label_el">EL (0-90°)</string>
+
+    <!-- Planetary Tracking -->
+    <string name="planet_sun">Sun</string>
+    <string name="planet_moon">Moon</string>
+    <string name="planet_mercury">Mercury</string>
+    <string name="planet_venus">Venus</string>
+    <string name="planet_mars">Mars</string>
+    <string name="planet_jupiter">Jupiter</string>
+    <string name="planet_saturn">Saturn</string>
+    <string name="planet_uranus">Uranus</string>
+    <string name="planet_neptune">Neptune</string>
+    <string name="planet_pluto">Pluto</string>
+    <string name="label_last_orbital_update">Orbital data updated: %1$s</string>
+    <string name="label_next_rise">Next rise: %1$s</string>
+    <string name="btn_track">TRACK</string>
+    <string name="btn_stop_track">STOP TRACKING</string>
+    <string name="status_below_horizon">BELOW HORIZON</string>
+    <string name="status_visible">VISIBLE</string>
 </resources>

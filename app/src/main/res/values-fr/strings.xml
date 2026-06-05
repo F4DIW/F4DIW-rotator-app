@@ -7,6 +7,8 @@
     <string name="title_home">ACTIVITÉS</string>
     <string name="activity_manual">Contrôle Manuel</string>
     <string name="activity_manual_sub">Pilotage direct AZ/EL</string>
+    <string name="activity_look4sat">Look4Sat</string>
+    <string name="activity_look4sat_sub">Passages &amp; Tracking Satellite</string>
     <string name="activity_planets">Planètes</string>
     <string name="activity_planets_sub">Tracking Système Solaire</string>
     <string name="activity_adsb">ADS-B</string>
@@ -40,4 +42,22 @@
     <string name="jog_instructions">1. Utilisez les flèches pour aligner physiquement votre antenne.\n2. Appuyez sur SET ZERO pour définir cette position comme le nouveau 0.0°.</string>
     <string name="label_az">AZ (0-360°)</string>
     <string name="label_el">EL (0-90°)</string>
+
+    <!-- Tracking Planétaire -->
+    <string name="planet_sun">Soleil</string>
+    <string name="planet_moon">Lune</string>
+    <string name="planet_mercury">Mercure</string>
+    <string name="planet_venus">Vénus</string>
+    <string name="planet_mars">Mars</string>
+    <string name="planet_jupiter">Jupiter</string>
+    <string name="planet_saturn">Saturne</string>
+    <string name="planet_uranus">Uranus</string>
+    <string name="planet_neptune">Neptune</string>
+    <string name="planet_pluto">Pluton</string>
+    <string name="label_last_orbital_update">Données orbitales à jour : %1$s</string>
+    <string name="label_next_rise">Lever prochain : %1$s</string>
+    <string name="btn_track">TRACKER</string>
+    <string name="btn_stop_track">ARRÊTER LE SUIVI</string>
+    <string name="status_below_horizon">SOUS L\'HORIZON</string>
+    <string name="status_visible">VISIBLE</string>
 </resources>

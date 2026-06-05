@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="40dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="40">
+    <!-- Main Body -->
+    <path
+        android:pathData="M25,15m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0"
+        android:fillColor="#F9D669"/>
+    <!-- Antennas -->
+    <path
+        android:pathData="M18.5,16.5 L5,25 M19.5,19.5 L10,35 M22.5,21.5 L25,38 M25.5,19.5 L38,28"
+        android:strokeWidth="2"
+        android:strokeColor="#F9D669"
+        android:strokeLineCap="round"/>
+</vector>

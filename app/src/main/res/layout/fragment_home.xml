@@ -72,9 +72,9 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Tracking Planétaire -->
+        <!-- Lancement Look4Sat -->
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardPlanets"
+            android:id="@+id/cardLook4Sat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -82,8 +82,8 @@
             android:focusable="true"
             app:cardCornerRadius="16dp"
             app:cardBackgroundColor="@color/bg_card"
-            app:strokeWidth="0dp"
-            android:alpha="0.6">
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/look4sat_yellow">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,8 +95,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@android:drawable/btn_star_big_on"
-                    app:tint="@color/white" />
+                    android:src="@drawable/look4sat_icon" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -108,19 +107,83 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/activity_planets"
-                        android:textColor="@color/white"
+                        android:text="@string/activity_look4sat"
+                        android:textColor="@color/look4sat_yellow"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/activity_planets_sub"
+                        android:text="@string/activity_look4sat_sub"
                         android:textColor="@color/text_secondary"
                         android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Tracking Planétaire -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPlanets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/grid_blue">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Background Image -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/system_solaire"
+                    android:scaleType="centerCrop"
+                    android:alpha="0.4" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="20dp"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/btn_star_big_on"
+                        app:tint="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/activity_planets"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/activity_planets_sub"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Tracking ADS-B -->

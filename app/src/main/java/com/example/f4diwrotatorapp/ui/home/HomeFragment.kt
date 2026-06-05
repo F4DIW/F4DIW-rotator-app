@@ -33,8 +33,15 @@ class HomeFragment : Fragment() {
                 .commit()
         }
 
+        binding.cardLook4Sat.setOnClickListener {
+            launchExternalApp("com.rtbishop.look4sat")
+        }
+
         binding.cardPlanets.setOnClickListener {
-            Toast.makeText(requireContext(), "Bientôt disponible : Tracking Planétaire", Toast.LENGTH_SHORT).show()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, com.example.f4diwrotatorapp.ui.planets.PlanetsFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.cardAdsb.setOnClickListener {
@@ -43,6 +50,15 @@ class HomeFragment : Fragment() {
 
         binding.cardRadiosonde.setOnClickListener {
             Toast.makeText(requireContext(), "Bientôt disponible : Tracking Radiosondes", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun launchExternalApp(packageName: String) {
+        val intent = requireContext().packageManager.getLaunchIntentForPackage(packageName)
+        if (intent != null) {
+            startActivity(intent)
+        } else {
+            Toast.makeText(requireContext(), "L'application $packageName n'est pas installée", Toast.LENGTH_LONG).show()
         }
     }
 

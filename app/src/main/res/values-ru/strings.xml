@@ -7,6 +7,8 @@
     <string name="title_home">АКТИВНОСТЬ</string>
     <string name="activity_manual">Ручное управление</string>
     <string name="activity_manual_sub">Прямое управление AZ/EL</string>
+    <string name="activity_look4sat">Look4Sat</string>
+    <string name="activity_look4sat_sub">Прогноз пролетов и трекинг</string>
     <string name="activity_planets">Планеты</string>
     <string name="activity_planets_sub">Трекинг Солнечной системы</string>
     <string name="activity_adsb">ADS-B</string>
@@ -40,4 +42,22 @@
     <string name="jog_instructions">1. Используйте стрелки для физического выравнивания антенны.\n2. Нажмите SET ZERO, чтобы установить это положение как новое 0.0°.</string>
     <string name="label_az">AZ (0-360°)</string>
     <string name="label_el">EL (0-90°)</string>
+
+    <!-- Планетарный трекинг -->
+    <string name="planet_sun">Солнце</string>
+    <string name="planet_moon">Луна</string>
+    <string name="planet_mercury">Меркурий</string>
+    <string name="planet_venus">Венера</string>
+    <string name="planet_mars">Марс</string>
+    <string name="planet_jupiter">Юпитер</string>
+    <string name="planet_saturn">Сатурн</string>
+    <string name="planet_uranus">Уран</string>
+    <string name="planet_neptune">Нептун</string>
+    <string name="planet_pluto">Плутон</string>
+    <string name="label_last_orbital_update">Орбитальные данные обновлены: %1$s</string>
+    <string name="label_next_rise">Следующий восход: %1$s</string>
+    <string name="btn_track">ОТСЛЕЖИВАТЬ</string>
+    <string name="btn_stop_track">ОСТАНОВИТЬ СЛЕЖЕНИЕ</string>
+    <string name="status_below_horizon">ЗА ГОРИЗОНТОМ</string>
+    <string name="status_visible">ВИДИМО</string>
 </resources>

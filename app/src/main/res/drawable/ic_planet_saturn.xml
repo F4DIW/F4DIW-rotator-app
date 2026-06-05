@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    <!-- Rings -->
+    <path
+        android:strokeWidth="8"
+        android:pathData="M20,100c0,-30 160,-30 160,0c0,30 -160,30 -160,0"
+        android:fillColor="#00000000"
+        android:strokeColor="#B0BEC5"/>
+    <!-- Planet -->
+    <path
+        android:fillColor="#FFF9C4"
+        android:pathData="M100,100m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"/>
+</vector>

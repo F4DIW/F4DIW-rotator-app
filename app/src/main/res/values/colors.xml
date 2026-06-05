@@ -15,4 +15,8 @@
     <!-- Status colors -->
     <color name="status_connected">#69FF47</color>
     <color name="status_disconnected">#FF5252</color>
+
+    <!-- External Apps -->
+    <color name="look4sat_blue">#3F51B5</color>
+    <color name="look4sat_yellow">#F9D669</color>
 </resources>
