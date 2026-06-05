@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.f4diwrotatorapp"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.f4diwrotatorapp"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
