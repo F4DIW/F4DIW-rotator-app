@@ -1,5 +1,82 @@
 # F4DIW Rotator App 📡🛰️
 
+(English version below / Version française plus bas)
+
+---
+
+# English Version
+
+Modern Android application for controlling the **F4DIW** satellite antenna rotator. This application communicates via Bluetooth Classic (SPP) with an ESP32-based firmware (Wemos D1 R32) and supports Look4Sat and EasyComm II protocols.
+
+## 🚀 Key Features
+
+- **High-Tech Interface**: Dark design inspired by Look4Sat with a "Radar" rendering and monospace typography for coordinates.
+- **Activity Hub**: Quick access to manual control, planetary tracking, and direct launch of Look4Sat.
+- **Premium Splash Screen**: Full-screen startup (4s) with integrated logo and radar.
+- **Real-Time Control**: Large AZ/EL display with automatic updates.
+- **Planetary Tracking**: Real-time calculation (via Astronomy Engine) of Sun, Moon, and planet positions with 0.2s precision.
+- **Position Management**: Phone GPS position retrieval and automatic **QTH Locator (Maidenhead)** calculation.
+- **Jog & Reset Calibration System**: 
+  - Manual movement via directional pad (Jog) of +/- 1.0°.
+  - Software reset (`RST` command) to define the reference point.
+- **Multilingual**: Full support for **French**, **English**, and **Russian**.
+- **Robust Bluetooth**: Secure ESP32 connection management, dynamic device selection in settings.
+
+## 📸 Overviews
+*(Screenshots to be added in the /docs/screenshots folder)*
+- **Home**: Central hub with different activities.
+- **Control**: Manual pilot interface with position feedback.
+- **Planets**: List of celestial bodies with real NASA visuals.
+- **Settings**: Bluetooth, Language, and GPS Position configuration.
+
+## 📱 Installation
+
+The application is automatically compiled with every GitHub update.
+1. Go to the **Actions** tab of this repository.
+2. Select the latest successful build (**Android Release Build**).
+3. Download the artifact named `F4DIW-rotator.apk`.
+
+## ⚙️ Firmware Configuration (ESP32)
+
+For full compatibility with calibration and jog functions, ensure your firmware handles the following commands in the main loop:
+
+```cpp
+if (SerialBT.available()) {
+    String cmd = SerialBT.readStringUntil('\n');
+    cmd.trim();
+    if (cmd.startsWith("ML")) control_az.setpoint -= 1.0;
+    if (cmd.startsWith("MR")) control_az.setpoint += 1.0;
+    if (cmd.startsWith("MU")) control_el.setpoint += 1.0;
+    if (cmd.startsWith("MD")) control_el.setpoint -= 1.0;
+    if (cmd.startsWith("RST")) {
+        stepper_az.setCurrentPosition(0);
+        stepper_el.setCurrentPosition(0);
+        control_az.setpoint = 0;
+        control_el.setpoint = 0;
+        SerialBT.println("AZ000.0 EL00.0");
+    }
+}
+```
+
+## 🙏 Acknowledgments and Data Sources
+
+This project uses and thanks the following sources:
+- **NASA Scientific Visualization Studio (SVS)**: For high-resolution planetary visuals.
+- **Astronomy Engine (Don Cross)**: For the high-precision astronomical calculation library.
+- **Look4Sat (Artyom Bishop)**: For visual inspiration and the excellent satellite prediction app.
+- **SatNOGS**: For rotator protocol standards.
+
+## 🛠️ Technical Stack
+
+- **Language**: Kotlin
+- **UI**: Material Design 3, ViewBinding, Fragments
+- **Architecture**: MVVM (ViewModel, Repository, StateFlow)
+- **CI/CD**: GitHub Actions (Automatic Build & Release)
+
+---
+
+# Version Française
+
 Application Android moderne pour le contrôle du rotateur d'antenne satellite **F4DIW**. Cette application communique via Bluetooth Classic (SPP) avec un firmware basé sur ESP32 (Wemos D1 R32) et supporte les protocoles Look4Sat et EasyComm II.
 
 ## 🚀 Caractéristiques principales
