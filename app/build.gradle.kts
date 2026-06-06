@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.f4diwrotatorapp"
+    namespace = "fr.f4diw.rotatorapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.f4diwrotatorapp"
+        applicationId = "fr.f4diw.rotatorapp"
         minSdk = 26
         targetSdk = 35
         versionCode = 1
