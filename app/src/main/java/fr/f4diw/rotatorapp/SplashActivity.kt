@@ -1,11 +1,14 @@
 package fr.f4diw.rotatorapp
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {

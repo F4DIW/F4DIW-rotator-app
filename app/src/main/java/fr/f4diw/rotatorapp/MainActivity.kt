@@ -1,11 +1,14 @@
 package fr.f4diw.rotatorapp
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.Fragment
 import fr.f4diw.rotatorapp.databinding.ActivityMainBinding
 import fr.f4diw.rotatorapp.ui.home.HomeFragment

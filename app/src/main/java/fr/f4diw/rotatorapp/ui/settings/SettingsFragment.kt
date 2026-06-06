@@ -132,17 +132,9 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setLocale(languageCode: String) {
-        // Enregistre dans les préférences pour le prochain démarrage
-        val prefs = requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
-        prefs.edit().putString("language_code", languageCode).apply()
-
-        // Applique dynamiquement
+        // La méthode moderne gère elle-même la persistance et le redémarrage si nécessaire
         val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
-        
-        // Sur Android 13+ (Pixel 7), l'activité est recréée automatiquement par setApplicationLocales
-        // mais on peut forcer pour être sûr sur les versions intermédiaires
-        requireActivity().recreate()
     }
 
     override fun onDestroyView() {
