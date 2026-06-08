@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.F4DIWRotatorApp"
-        android:localeConfig="@xml/locales_config">
+        android:localeConfig="@xml/locales_config"
+        android:usesCleartextTraffic="true">
         <activity
             android:name="fr.f4diw.rotatorapp.SplashActivity"
             android:exported="true"

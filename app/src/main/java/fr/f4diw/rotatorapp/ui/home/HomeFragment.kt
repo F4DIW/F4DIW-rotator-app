@@ -52,11 +52,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.cardRadiosonde.setOnClickListener {
-            // Pour l'instant on utilise la même logique pour les avions sur la page radiosonde comme demandé
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, fr.f4diw.rotatorapp.ui.adsb.AdsbFragment())
-                .addToBackStack(null)
-                .commit()
+            Toast.makeText(requireContext(), "Bientôt disponible : Tracking Radiosondes", Toast.LENGTH_SHORT).show()
         }
     }
 

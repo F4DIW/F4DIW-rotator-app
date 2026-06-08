@@ -26,7 +26,7 @@ class AdsbViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             while (isRefreshing) {
                 refreshData()
-                delay(2000)
+                delay(500) // Mise à jour réseau toutes les 500ms
             }
         }
     }
@@ -47,6 +47,12 @@ class AdsbViewModel(application: Application) : AndroidViewModel(application) {
         }.sortedBy { it.distanceKm }
 
         _aircraftList.value = listWithDistance
+    }
+
+    fun fetchPhoto(hex: String) {
+        viewModelScope.launch {
+            repository.fetchPhotoForAircraft(hex)
+        }
     }
 
     data class AircraftWithDistance(val aircraft: Aircraft, val distanceKm: Double)

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import fr.f4diw.rotatorapp.R
 import fr.f4diw.rotatorapp.databinding.FragmentAdsbTrackingBinding
 import fr.f4diw.rotatorapp.ui.control.ControlViewModel
@@ -22,7 +23,7 @@ class AdsbTrackingFragment : Fragment() {
     private var _binding: FragmentAdsbTrackingBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ControlViewModel by viewModels({ requireActivity() })
-    private val adsbViewModel: AdsbViewModel by viewModels()
+    private val adsbViewModel: AdsbViewModel by viewModels({ requireActivity() })
 
     private var targetHex: String = ""
     private var isTracking = false
@@ -37,7 +38,7 @@ class AdsbTrackingFragment : Fragment() {
             if (isTracking && currentEl >= -5f) { // Autorise un peu sous l'horizon pour les avions
                 viewModel.repository.sendAzEl(currentAz + offsetAz, currentEl + offsetEl)
             }
-            handler.postDelayed(this, 1000) // Mise à jour rotor toutes les secondes
+            handler.postDelayed(this, 200) // Mise à jour rotor toutes les 200ms (synchro avec planets)
         }
     }
 
@@ -79,6 +80,7 @@ class AdsbTrackingFragment : Fragment() {
         binding.btnJogRight.setOnClickListener { offsetAz += 0.5f }
 
         adsbViewModel.startRefreshing()
+        adsbViewModel.fetchPhoto(targetHex)
         handler.post(updateTask)
     }
 
@@ -100,6 +102,13 @@ class AdsbTrackingFragment : Fragment() {
         binding.tvAz.text = "AZ: %.1f°".format(currentAz)
         binding.tvEl.text = "EL: %.1f°".format(currentEl)
         binding.tvDistAlt.text = "Dist: %.1f km / Alt: %.0f m".format(data.distanceKm, data.aircraft.getAltitudeMeters())
+
+        if (data.aircraft.photoUrl != null) {
+            Glide.with(this)
+                .load(data.aircraft.photoUrl)
+                .placeholder(android.R.drawable.ic_menu_send)
+                .into(binding.ivAircraftIcon)
+        }
     }
 
     private fun updateTrackButtonUi() {

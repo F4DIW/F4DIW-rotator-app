@@ -42,10 +42,10 @@
 
         <ImageView
             android:id="@+id/ivAircraftIcon"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
             android:src="@android:drawable/ic_menu_send"
-            app:tint="@color/accent_blue"
+            android:scaleType="centerCrop"
             android:layout_marginBottom="32dp" />
 
         <!-- Position Card -->

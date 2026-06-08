@@ -18,7 +18,7 @@ class AdsbFragment : Fragment() {
 
     private var _binding: FragmentAdsbBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: AdsbViewModel by viewModels()
+    private val viewModel: AdsbViewModel by viewModels({ requireActivity() })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -81,6 +81,10 @@ class AdsbFragment : Fragment() {
             holder.binding.tvFlight.text = item.aircraft.getDisplayFlight()
             holder.binding.tvHex.text = item.aircraft.hex.uppercase()
             holder.binding.tvDistance.text = "%.1f km".format(item.distanceKm)
+
+            holder.binding.ivAircraft.alpha = 0.5f
+            holder.binding.ivAircraft.setPadding(12, 12, 12, 12)
+            holder.binding.ivAircraft.setImageResource(android.R.drawable.ic_menu_send)
             
             holder.binding.cardAircraft.setOnClickListener { onClick(item) }
         }
