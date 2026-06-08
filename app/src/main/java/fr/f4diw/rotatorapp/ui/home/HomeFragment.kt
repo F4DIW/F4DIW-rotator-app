@@ -45,11 +45,18 @@ class HomeFragment : Fragment() {
         }
 
         binding.cardAdsb.setOnClickListener {
-            Toast.makeText(requireContext(), "Bientôt disponible : Tracking ADS-B", Toast.LENGTH_SHORT).show()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fr.f4diw.rotatorapp.ui.adsb.AdsbFragment())
+                .addToBackStack(null)
+                .commit()
         }
 
         binding.cardRadiosonde.setOnClickListener {
-            Toast.makeText(requireContext(), "Bientôt disponible : Tracking Radiosondes", Toast.LENGTH_SHORT).show()
+            // Pour l'instant on utilise la même logique pour les avions sur la page radiosonde comme demandé
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fr.f4diw.rotatorapp.ui.adsb.AdsbFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 
