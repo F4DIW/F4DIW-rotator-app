@@ -28,6 +28,8 @@ class PlanetTrackingFragment : Fragment() {
     private var isTracking = false
     private var currentAz: Float = 0f
     private var currentEl: Float = 0f
+    private var offsetAz: Float = 0f
+    private var offsetEl: Float = 0f
 
     private val handler = Handler(Looper.getMainLooper())
     private val updateTask = object : Runnable {
@@ -70,6 +72,7 @@ class PlanetTrackingFragment : Fragment() {
         val iconResId = requireContext().resources.getIdentifier("ic_planet_${planetName.lowercase()}", "drawable", requireContext().packageName)
         if (iconResId != 0) {
             binding.ivPlanetBig.setImageResource(iconResId)
+            binding.ivPlanetBig.contentDescription = binding.tvTitle.text
         }
 
         binding.btnBack.setOnClickListener {
@@ -84,6 +87,11 @@ class PlanetTrackingFragment : Fragment() {
             isTracking = !isTracking
             updateTrackButtonUi()
         }
+
+        binding.btnJogUp.setOnClickListener { offsetEl += 0.5f }
+        binding.btnJogDown.setOnClickListener { offsetEl -= 0.5f }
+        binding.btnJogLeft.setOnClickListener { offsetAz -= 0.5f }
+        binding.btnJogRight.setOnClickListener { offsetAz += 0.5f }
 
         handler.post(updateTask)
     }
@@ -128,7 +136,7 @@ class PlanetTrackingFragment : Fragment() {
     }
 
     private fun sendPositionToRotator() {
-        viewModel.repository.sendAzEl(currentAz, currentEl)
+        viewModel.repository.sendAzEl(currentAz + offsetAz, currentEl + offsetEl)
     }
 
     override fun onDestroyView() {

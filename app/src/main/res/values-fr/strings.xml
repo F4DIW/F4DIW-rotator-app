@@ -60,4 +60,5 @@
     <string name="btn_stop_track">ARRÊTER LE SUIVI</string>
     <string name="status_below_horizon">SOUS L\'HORIZON</string>
     <string name="status_visible">VISIBLE</string>
+    <string name="label_correction">CORRECTION CADRAGE</string>
 </resources>

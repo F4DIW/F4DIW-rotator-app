@@ -104,6 +104,7 @@ class PlanetsFragment : Fragment() {
             val iconResId = context.resources.getIdentifier("ic_planet_${item.body.name.lowercase()}", "drawable", context.packageName)
             if (iconResId != 0) {
                 holder.binding.ivPlanet.setImageResource(iconResId)
+                holder.binding.ivPlanet.contentDescription = holder.binding.tvPlanetName.text
             }
 
             holder.binding.cardPlanet.setOnClickListener { onClick(item) }

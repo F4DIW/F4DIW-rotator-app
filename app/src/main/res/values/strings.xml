@@ -60,4 +60,5 @@
     <string name="btn_stop_track">STOP TRACKING</string>
     <string name="status_below_horizon">BELOW HORIZON</string>
     <string name="status_visible">VISIBLE</string>
+    <string name="label_correction">ALIGNMENT CORRECTION</string>
 </resources>

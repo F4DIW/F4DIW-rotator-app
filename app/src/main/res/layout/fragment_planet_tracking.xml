@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="AZ: 000.0°"
                     android:textColor="@color/white"
-                    android:textSize="48sp"
+                    android:textSize="36sp"
                     android:fontFamily="monospace"
                     android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:text="EL: 00.0°"
                     android:textColor="@color/accent_blue"
-                    android:textSize="40sp"
+                    android:textSize="32sp"
                     android:fontFamily="monospace"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -92,20 +92,89 @@
             android:layout_height="wrap_content"
             android:text="Next rise: --/-- --:--"
             android:textColor="@color/text_secondary"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:gravity="center"
-            android:layout_marginBottom="32dp" />
+            android:layout_marginBottom="24dp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTrack"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="@string/btn_track"
-            app:cornerRadius="16dp"
-            android:backgroundTint="@color/status_connected"
-            android:textColor="@color/bg_main"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_correction"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
             android:textStyle="bold"
-            android:textSize="18sp" />
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+
+            <!-- Mini Joystick (4 arrows) -->
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:rowCount="3">
+
+                <View android:layout_width="32dp" android:layout_height="32dp" />
+                <ImageButton
+                    android:id="@+id/btnJogUp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/white" />
+                <View android:layout_width="32dp" android:layout_height="32dp" />
+
+                <ImageButton
+                    android:id="@+id/btnJogLeft"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:rotation="270"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/white" />
+                <View android:layout_width="32dp" android:layout_height="32dp" />
+                <ImageButton
+                    android:id="@+id/btnJogRight"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:rotation="90"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/white" />
+
+                <View android:layout_width="32dp" android:layout_height="32dp" />
+                <ImageButton
+                    android:id="@+id/btnJogDown"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:rotation="180"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="@color/white" />
+                <View android:layout_width="32dp" android:layout_height="32dp" />
+            </GridLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTrack"
+                android:layout_width="140dp"
+                android:layout_height="56dp"
+                android:text="@string/btn_track"
+                app:cornerRadius="16dp"
+                android:backgroundTint="@color/status_connected"
+                android:textColor="@color/bg_main"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

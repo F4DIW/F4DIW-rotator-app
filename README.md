@@ -14,10 +14,11 @@ Modern Android application for controlling the **F4DIW** satellite antenna rotat
 - **Activity Hub**: Quick access to manual control, planetary tracking, and direct launch of Look4Sat.
 - **Premium Splash Screen**: Full-screen startup (4s) with integrated logo and radar.
 - **Real-Time Control**: Large AZ/EL display with automatic updates.
-- **Planetary Tracking**: Real-time calculation (via Astronomy Engine) of Sun, Moon, and planet positions with 0.2s precision.
+- **Planetary Tracking**: Real-time calculation (via Astronomy Engine) of Sun, Moon, and all solar system planets (including Mercury and Uranus) with NASA visuals.
+- **Alignment Correction**: Integrated mini-joystick in the tracking screen for fine-tuning the antenna alignment (+/- 0.5° per click) without affecting the displayed astronomical coordinates.
 - **Position Management**: Phone GPS position retrieval and automatic **QTH Locator (Maidenhead)** calculation.
 - **Jog & Reset Calibration System**: 
-  - Manual movement via directional pad (Jog) of +/- 1.0°.
+  - Manual movement via directional pad (Jog) of +/- 1.0° in settings.
   - Software reset (`RST` command) to define the reference point.
 - **Multilingual**: Full support for **French**, **English**, and **Russian**.
 - **Robust Bluetooth**: Secure ESP32 connection management, dynamic device selection in settings.
@@ -92,10 +93,11 @@ Application Android moderne pour le contrôle du rotateur d'antenne satellite **
 - **Hub d'activités** : Accès rapide au contrôle manuel, au tracking planétaire, et lancement direct de Look4Sat.
 - **Splash Screen Premium** : Écran de démarrage plein écran (4s) avec logo et radar intégrés.
 - **Contrôle Temps Réel** : Affichage AZ/EL en gros caractères avec mise à jour automatique.
-- **Tracking Planétaire** : Calcul en temps réel (via Astronomy Engine) de la position du Soleil, de la Lune et des planètes avec une précision de 0.2s.
+- **Tracking Planétaire** : Calcul en temps réel (via Astronomy Engine) de la position du Soleil, de la Lune et de toutes les planètes du système solaire (Mercure et Uranus incluses) avec visuels NASA.
+- **Correction de Cadrage** : Mini-joystick intégré à l'écran de tracking pour affiner l'alignement de l'antenne (+/- 0.5° par clic) sans modifier les coordonnées astronomiques affichées.
 - **Gestion de Position** : Récupération de la position GPS du téléphone et calcul automatique du **QTH Locator (Maidenhead)**.
 - **Système de Calibration Jog & Reset** : 
-  - Déplacement manuel par pavé directionnel (Jog) de +/- 1.0°.
+  - Déplacement manuel par pavé directionnel (Jog) de +/- 1.0° dans les réglages.
   - Remise à zéro logicielle (commande `RST`) pour définir le point de référence.
 - **Multilingue** : Support complet du **Français**, de l'**Anglais** et du **Russe**.
 - **Bluetooth Robuste** : Gestion sécurisée des connexions ESP32, sélection dynamique du périphérique dans les réglages.

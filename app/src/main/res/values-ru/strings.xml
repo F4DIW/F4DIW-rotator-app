@@ -60,4 +60,5 @@
     <string name="btn_stop_track">ОСТАНОВИТЬ СЛЕЖЕНИЕ</string>
     <string name="status_below_horizon">ЗА ГОРИЗОНТОМ</string>
     <string name="status_visible">ВИДИМО</string>
+    <string name="label_correction">КОРРЕКЦИЯ НАВЕДЕНИЯ</string>
 </resources>
