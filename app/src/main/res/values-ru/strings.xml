@@ -24,6 +24,14 @@
     <string name="settings_language">Язык</string>
     <string name="settings_language_sub">Выбрать Français, English или Русский</string>
 
+    <string name="settings_data_sources">Источники данных</string>
+    <string name="settings_data_sources_sub">URL для ADS-B и радиозондов</string>
+    <string name="title_data_sources">ИСТОЧНИКИ ДАННЫХ</string>
+    <string name="label_adsb_url">Сервер ADS-B (URL или IP)</string>
+    <string name="label_radiosonde_url">Сервер радиозондов (URL или IP)</string>
+    <string name="hint_url">http://192.168.1.x:xxxx</string>
+    <string name="btn_save">СОХРАНИТЬ</string>
+
     <string name="title_position">ПОЛОЖЕНИЕ СТАНЦИИ</string>
     <string name="label_lat_lon">Шир: %1$.5f / Дол: %2$.5f</string>
     <string name="label_qth">QTH: %1$s</string>

@@ -24,6 +24,14 @@
     <string name="settings_language">Language</string>
     <string name="settings_language_sub">Choose Français, English or Русский</string>
 
+    <string name="settings_data_sources">Data Sources</string>
+    <string name="settings_data_sources_sub">ADS-B and Radiosondes URLs</string>
+    <string name="title_data_sources">DATA SOURCES</string>
+    <string name="label_adsb_url">ADS-B Server (URL or IP)</string>
+    <string name="label_radiosonde_url">Radiosonde Server (URL or IP)</string>
+    <string name="hint_url">http://192.168.1.x:xxxx</string>
+    <string name="btn_save">SAVE SETTINGS</string>
+
     <string name="title_position">STATION POSITION</string>
     <string name="label_lat_lon">Lat: %1$.5f / Lon: %2$.5f</string>
     <string name="label_qth">QTH: %1$s</string>

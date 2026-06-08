@@ -56,6 +56,13 @@ class SettingsFragment : Fragment() {
             showLanguageDialog()
         }
 
+        binding.cardDataSources.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, DataSourcesSettingsFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
         binding.btnGpsUpdate.setOnClickListener {
             updatePositionGps()
         }
