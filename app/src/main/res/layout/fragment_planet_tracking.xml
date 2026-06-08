@@ -96,15 +96,6 @@
             android:gravity="center"
             android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_correction"
-            android:textColor="@color/text_secondary"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,12 +103,28 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="32dp">
 
-            <!-- Mini Joystick (4 arrows) -->
-            <GridLayout
+            <!-- Joystick + Label Container -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:columnCount="3"
-                android:rowCount="3">
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_correction"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- Mini Joystick (4 arrows) -->
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="3">
 
                 <View android:layout_width="32dp" android:layout_height="32dp" />
                 <ImageButton
@@ -158,11 +165,12 @@
                     app:tint="@color/white" />
                 <View android:layout_width="32dp" android:layout_height="32dp" />
             </GridLayout>
+        </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnTrack"
