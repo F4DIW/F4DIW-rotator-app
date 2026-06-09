@@ -55,7 +55,7 @@ class AdsbFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        viewModel.stopRefreshing()
+        // On ne stop plus le rafraîchissement ici pour éviter de couper le tracking quand on change de fragment
         _binding = null
     }
 

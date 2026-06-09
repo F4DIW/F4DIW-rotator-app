@@ -25,14 +25,18 @@ class AdsbViewModel(application: Application) : AndroidViewModel(application) {
         isRefreshing = true
         viewModelScope.launch {
             while (isRefreshing) {
-                refreshData()
-                delay(500) // Mise à jour réseau toutes les 500ms
+                try {
+                    refreshData()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                delay(1000) // On repasse à 1s pour laisser l'API respirer et assurer la stabilité
             }
         }
     }
 
     fun stopRefreshing() {
-        isRefreshing = false
+        // On ne l'arrête plus forcément au onDestroyView du fragment pour garder les données au retour
     }
 
     private suspend fun refreshData() {
@@ -51,7 +55,11 @@ class AdsbViewModel(application: Application) : AndroidViewModel(application) {
 
     fun fetchPhoto(hex: String) {
         viewModelScope.launch {
-            repository.fetchPhotoForAircraft(hex)
+            val url = repository.fetchPhotoForAircraft(hex)
+            if (url != null) {
+                // Force un refresh immédiat de la liste pour afficher la photo
+                refreshData()
+            }
         }
     }
 

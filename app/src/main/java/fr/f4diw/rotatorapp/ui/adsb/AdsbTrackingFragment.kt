@@ -60,7 +60,7 @@ class AdsbTrackingFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             adsbViewModel.aircraftList.collectLatest { list ->
-                val aircraft = list.find { it.aircraft.hex == targetHex }
+                val aircraft = list.find { it.aircraft.hex.equals(targetHex, ignoreCase = true) }
                 aircraft?.let { updateUi(it) }
             }
         }
@@ -82,6 +82,9 @@ class AdsbTrackingFragment : Fragment() {
         adsbViewModel.startRefreshing()
         adsbViewModel.fetchPhoto(targetHex)
         handler.post(updateTask)
+        
+        // Log pour vérifier si on demande bien la photo
+        android.util.Log.d("ADSB", "Requested photo for $targetHex")
     }
 
     private fun updateUi(data: AdsbViewModel.AircraftWithDistance) {

@@ -58,7 +58,7 @@ class AdsbRepository(private val context: Context) {
         val url = "https://api.planespotters.net/pub/photos/hex/${hex.lowercase()}"
         val request = Request.Builder()
             .url(url)
-            .header("User-Agent", "F4DIW-Rotator-App/1.2")
+            .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36")
             .build()
 
         try {
@@ -66,24 +66,45 @@ class AdsbRepository(private val context: Context) {
                 if (response.code == 429) {
                     return@withContext null
                 }
-                if (!response.isSuccessful) {
-                    failedAttempts.add(hex)
-                    return@withContext null
-                }
-                val body = response.body?.string() ?: return@withContext null
-                val psResponse = gson.fromJson(body, fr.f4diw.rotatorapp.data.model.PlanespottersResponse::class.java)
-                val photoUrl = psResponse.photos.firstOrNull()?.thumbnailLarge?.src
-                
-                if (photoUrl != null) {
-                    photoCache[hex] = photoUrl
-                    photoUrl
-                } else {
-                    failedAttempts.add(hex)
-                    null
+                if (response.isSuccessful) {
+                    val body = response.body?.string() ?: return@withContext null
+                    val psResponse = gson.fromJson(body, fr.f4diw.rotatorapp.data.model.PlanespottersResponse::class.java)
+                    val photoUrl = psResponse.photos.firstOrNull()?.thumbnailLarge?.src
+                    
+                    if (photoUrl != null) {
+                        photoCache[hex] = photoUrl
+                        return@withContext photoUrl
+                    }
                 }
             }
         } catch (e: Exception) {
-            null
+            // Log or ignore
         }
+
+        // Fallback to Airport-Data.com
+        val fallbackUrl = "https://www.airport-data.com/api/ac_info.json?m=${hex.uppercase()}"
+        val fallbackRequest = Request.Builder()
+            .url(fallbackUrl)
+            .header("User-Agent", "Mozilla/5.0")
+            .build()
+
+        try {
+            client.newCall(fallbackRequest).execute().use { response ->
+                if (response.isSuccessful) {
+                    val body = response.body?.string() ?: return@withContext null
+                    val adResponse = gson.fromJson(body, fr.f4diw.rotatorapp.data.model.AirportDataResponse::class.java)
+                    val photoUrl = adResponse.data?.firstOrNull()?.image
+                    if (photoUrl != null) {
+                        photoCache[hex] = photoUrl
+                        return@withContext photoUrl
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            // Log or ignore
+        }
+
+        failedAttempts.add(hex)
+        null
     }
 }

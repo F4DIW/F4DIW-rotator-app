@@ -44,3 +44,12 @@ data class PlanespottersPhoto(
 data class PlanespottersImage(
     val src: String
 )
+
+// Model for Airport-Data.com API
+data class AirportDataResponse(
+    val data: List<AirportDataItem>?
+)
+
+data class AirportDataItem(
+    val image: String?
+)
