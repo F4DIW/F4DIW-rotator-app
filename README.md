@@ -31,12 +31,14 @@ Modern Android application for controlling the **F4DIW** satellite antenna rotat
   <img src="docs/screenshots/home.png" width="200" title="Home Hub">
   <img src="docs/screenshots/control.png" width="200" title="Manual Control">
   <img src="docs/screenshots/planets.png" width="200" title="Planetary Tracking">
+  <img src="docs/screenshots/adsb.png" width="200" title="ADS-B Tracking">
   <img src="docs/screenshots/settings.png" width="200" title="Settings & GPS">
 </p>
 
 - **Home**: Central hub with different activities.
 - **Control**: Manual pilot interface with position feedback.
 - **Planets**: List of celestial bodies with real NASA visuals.
+- **ADS-B**: Real-time aircraft tracking with photos.
 - **Settings**: Bluetooth, Language, and GPS Position configuration.
 
 ## 📱 Installation
@@ -112,12 +114,14 @@ Application Android moderne pour le contrôle du rotateur d'antenne satellite **
   <img src="docs/screenshots/home.png" width="200" title="Accueil">
   <img src="docs/screenshots/control.png" width="200" title="Contrôle Manuel">
   <img src="docs/screenshots/planets.png" width="200" title="Tracking Planétaire">
+  <img src="docs/screenshots/adsb.png" width="200" title="Suivi ADS-B">
   <img src="docs/screenshots/settings.png" width="200" title="Réglages & GPS">
 </p>
 
 - **Accueil** : Hub central avec les différentes activités.
 - **Contrôle** : Interface de pilotage manuel avec retour de position.
 - **Planètes** : Liste des astres avec visuels réels de la NASA.
+- **ADS-B** : Suivi des avions en temps réel avec photos.
 - **Réglages** : Configuration Bluetooth, Langue et Position GPS.
 
 ## 📱 Installation
