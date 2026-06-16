@@ -51,6 +51,8 @@
     <string name="jog_instructions">1. Use arrows to physically align your antenna.\n2. Press SET ZERO to define this position as the new 0.0°.</string>
     <string name="label_az">AZ (0-360°)</string>
     <string name="label_el">EL (0-90°)</string>
+    <string name="label_az_offset">Rotator Azimuth Offset (0-360°)</string>
+    <string name="hint_az_offset">Default: 0. Ex: 180 to move stop to South</string>
 
     <!-- Planetary Tracking -->
     <string name="planet_sun">Sun</string>

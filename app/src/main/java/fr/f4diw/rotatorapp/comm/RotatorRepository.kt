@@ -4,7 +4,7 @@ import fr.f4diw.rotatorapp.model.RotatorState
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
-class RotatorRepository(private val bt: BluetoothManager) {
+class RotatorRepository(private val bt: BluetoothManager, private val context: android.content.Context) {
 
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
@@ -51,11 +51,27 @@ class RotatorRepository(private val bt: BluetoothManager) {
     }
 
     // ── Commandes ─────────────────────────────────────────────────
-    fun sendAzEl(az: Float, el: Float) =
-        bt.send(EasyCommProtocol.setAzEl(az, el))
+    fun sendAzEl(az: Float, el: Float) {
+        val offset = context.getSharedPreferences("settings", android.content.Context.MODE_PRIVATE)
+            .getFloat("rotator_az_offset", 0f)
 
-    fun sendAzimuth(az: Float) =
-        bt.send(EasyCommProtocol.setAzimuth(az))
+        var finalAz = az + offset
+        while (finalAz >= 360f) finalAz -= 360f
+        while (finalAz < 0f) finalAz += 360f
+
+        bt.send(EasyCommProtocol.setAzEl(finalAz, el))
+    }
+
+    fun sendAzimuth(az: Float) {
+        val offset = context.getSharedPreferences("settings", android.content.Context.MODE_PRIVATE)
+            .getFloat("rotator_az_offset", 0f)
+
+        var finalAz = az + offset
+        while (finalAz >= 360f) finalAz -= 360f
+        while (finalAz < 0f) finalAz += 360f
+
+        bt.send(EasyCommProtocol.setAzimuth(finalAz))
+    }
 
     fun sendElevation(el: Float) =
         bt.send(EasyCommProtocol.setElevation(el))

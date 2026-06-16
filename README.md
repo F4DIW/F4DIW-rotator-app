@@ -20,6 +20,7 @@ Modern Android application for controlling the **F4DIW** satellite antenna rotat
 - **Position Management**: Phone GPS position retrieval and automatic **QTH Locator (Maidenhead)** calculation.
 - **Jog & Reset Calibration System**: 
   - Manual movement via directional pad (Jog) of +/- 1.0° in settings.
+  - **Software Azimuth Offset**: Ability to shift the "dead zone" (the 0-360 stop) by adding a software offset (e.g., 180° to move the mechanical stop to the South), allowing continuous tracking across the North.
   - Software reset (`RST` command) to define the reference point.
 - **Multilingual**: Full support for **French**, **English**, and **Russian**.
 - **Robust Bluetooth**: Secure ESP32 connection management, dynamic device selection in settings.
@@ -100,6 +101,7 @@ Application Android moderne pour le contrôle du rotateur d'antenne satellite **
 - **Gestion de Position** : Récupération de la position GPS du téléphone et calcul automatique du **QTH Locator (Maidenhead)**.
 - **Système de Calibration Jog & Reset** : 
   - Déplacement manuel par pavé directionnel (Jog) de +/- 1.0° dans les réglages.
+  - **Offset d'Azimut Logiciel** : Possibilité de décaler la "zone morte" (la butée 0-360) en ajoutant un décalage logiciel (ex: 180° pour déplacer la butée mécanique au Sud), permettant un suivi continu lors du passage au Nord.
   - Remise à zéro logicielle (commande `RST`) pour définir le point de référence.
 - **Multilingue** : Support complet du **Français**, de l'**Anglais** et du **Russe**.
 - **Bluetooth Robuste** : Gestion sécurisée des connexions ESP32, sélection dynamique du périphérique dans les réglages.

@@ -51,6 +51,8 @@
     <string name="jog_instructions">1. Используйте стрелки для физического выравнивания антенны.\n2. Нажмите SET ZERO, чтобы установить это положение как новое 0.0°.</string>
     <string name="label_az">AZ (0-360°)</string>
     <string name="label_el">EL (0-90°)</string>
+    <string name="label_az_offset">Смещение азимута ротора (0-360°)</string>
+    <string name="hint_az_offset">По умолчанию: 0. Пример: 180 (упор на Юг)</string>
 
     <!-- Планетарный трекинг -->
     <string name="planet_sun">Солнце</string>

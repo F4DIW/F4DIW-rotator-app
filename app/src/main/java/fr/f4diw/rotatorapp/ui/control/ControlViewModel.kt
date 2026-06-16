@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 class ControlViewModel(application: Application) : AndroidViewModel(application) {
 
     private val btManager = BluetoothManager(application.applicationContext)
-    val repository = RotatorRepository(btManager)
+    val repository = RotatorRepository(btManager, application.applicationContext)
 
     // ── Flux observables par le Fragment ──────────────────────────
     val state: StateFlow<RotatorState> = repository.state

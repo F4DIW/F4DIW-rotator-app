@@ -51,6 +51,8 @@
     <string name="jog_instructions">1. Utilisez les flèches pour aligner physiquement votre antenne.\n2. Appuyez sur SET ZERO pour définir cette position comme le nouveau 0.0°.</string>
     <string name="label_az">AZ (0-360°)</string>
     <string name="label_el">EL (0-90°)</string>
+    <string name="label_az_offset">Offset Azimut Rotor (0-360°)</string>
+    <string name="hint_az_offset">Défaut: 0. Ex: 180 pour mettre la butée au Sud</string>
 
     <!-- Tracking Planétaire -->
     <string name="planet_sun">Soleil</string>

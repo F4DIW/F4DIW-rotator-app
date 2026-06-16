@@ -1,5 +1,6 @@
 package fr.f4diw.rotatorapp.ui.settings
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,18 @@ class SettingsRotatorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val prefs = requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
+
+        // ── Azimuth Offset ──
+        val currentOffset = prefs.getFloat("rotator_az_offset", 0f)
+        binding.etAzOffset.setText(currentOffset.toString())
+
+        binding.btnSaveOffset.setOnClickListener {
+            val offset = binding.etAzOffset.text.toString().toFloatOrNull() ?: 0f
+            prefs.edit().putFloat("rotator_az_offset", offset).apply()
+            showToast("Offset enregistré : $offset°")
+        }
 
         // ── Jog Commands (ML, MR, MU, MD) ──
         binding.btnJogUp.setOnClickListener {
