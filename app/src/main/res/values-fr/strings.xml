@@ -28,6 +28,7 @@
     <string name="settings_data_sources_sub">Adresses ADS-B et Radiosondes</string>
     <string name="title_data_sources">SOURCES DE DONNÉES</string>
     <string name="label_adsb_url">Serveur ADS-B (URL ou IP)</string>
+    <string name="label_adsb_url_sub">Emplacement du fichier aircraft.json de TAR1090</string>
     <string name="label_radiosonde_url">Serveur Radiosondes (URL ou IP)</string>
     <string name="hint_url">http://192.168.1.x:xxxx</string>
     <string name="btn_save">ENREGISTRER</string>

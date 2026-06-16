@@ -28,6 +28,7 @@
     <string name="settings_data_sources_sub">URL для ADS-B и радиозондов</string>
     <string name="title_data_sources">ИСТОЧНИКИ ДАННЫХ</string>
     <string name="label_adsb_url">Сервер ADS-B (URL или IP)</string>
+    <string name="label_adsb_url_sub">Путь к файлу aircraft.json (TAR1090)</string>
     <string name="label_radiosonde_url">Сервер радиозондов (URL или IP)</string>
     <string name="hint_url">http://192.168.1.x:xxxx</string>
     <string name="btn_save">СОХРАНИТЬ</string>

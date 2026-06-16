@@ -57,7 +57,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/label_adsb_url"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_adsb_url_sub"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
                     android:layout_marginBottom="8dp" />
 
                 <EditText
