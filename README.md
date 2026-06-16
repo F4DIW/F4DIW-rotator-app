@@ -1,12 +1,18 @@
 # F4DIW Rotator App 📡🛰️
 
+[![GitHub release](https://img.shields.io/github/v/release/F4DIW/F4DIW-rotator-app?include_prereleases&style=flat-square)](https://github.com/F4DIW/F4DIW-rotator-app/releases)
+[![GitHub repo size](https://img.shields.io/github/repo-size/F4DIW/F4DIW-rotator-app?style=flat-square)](https://github.com/F4DIW/F4DIW-rotator-app)
+
 (English version below / Version française plus bas)
 
 ---
 
 # English Version
 
-Modern Android application for controlling the **F4DIW** satellite antenna rotator. This application communicates via Bluetooth Classic (SPP) with an ESP32-based firmware (Wemos D1 R32) and supports Look4Sat and EasyComm II protocols.
+**F4DIW Rotator App** is a modern, high-tech Android application designed for radio amateurs to control the **F4DIW Satellite Antenna Rotator**. It provides a seamless interface to track satellites, planets, and aircraft in real-time.
+
+### 🔌 Hardware Compatibility
+This app is designed to work specifically with the [F4DIW Rotator Firmware (ESP32)](https://github.com/F4DIW/F4DIW-rotator) using Bluetooth Classic (SPP).
 
 ## 🚀 Key Features
 
