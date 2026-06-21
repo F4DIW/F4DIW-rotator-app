@@ -19,4 +19,8 @@
     <!-- External Apps -->
     <color name="look4sat_blue">#3F51B5</color>
     <color name="look4sat_yellow">#F9D669</color>
+
+    <!-- Sonde types -->
+    <color name="sonde_pro">#1B3320</color>    <!-- Vert très sombre/clair selon le texte -->
+    <color name="sonde_amateur">#1B2B33</color> <!-- Bleu très sombre/ciel -->
 </resources>

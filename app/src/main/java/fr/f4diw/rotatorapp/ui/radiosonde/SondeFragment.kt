@@ -32,7 +32,7 @@ class SondeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = SondeAdapter { item ->
-            val fragment = SondeTrackingFragment.newInstance(item.sonde.serial)
+            val fragment = SondeTrackingFragment.newInstance(item.sonde.getEffectiveSerial())
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, fragment)
                 .addToBackStack(null)
@@ -80,10 +80,18 @@ class SondeFragment : Fragment() {
             val context = holder.itemView.context
             
             holder.binding.tvSondeInfo.text = context.getString(R.string.label_sonde_info, 
-                item.sonde.serial, item.sonde.getDisplayFrequency())
+                item.sonde.getEffectiveSerial(), item.sonde.getDisplayFrequency())
             holder.binding.tvSondeType.text = context.getString(R.string.label_sonde_type, 
                 item.sonde.getDisplayType())
             holder.binding.tvDistance.text = "%.1f km".format(item.distanceKm)
+
+            // Change color based on type
+            val bgColor = if (item.sonde.isAmateur) {
+                context.getColor(R.color.sonde_amateur)
+            } else {
+                context.getColor(R.color.sonde_pro)
+            }
+            holder.binding.cardSonde.setCardBackgroundColor(bgColor)
             
             holder.binding.cardSonde.setOnClickListener { onClick(item) }
         }

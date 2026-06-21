@@ -270,10 +270,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/system_solaire"
+                    android:src="@drawable/rs_bg"
                     android:scaleType="centerCrop"
-                    android:alpha="0.2"
-                    app:tint="#80000000" />
+                    android:alpha="0.4" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

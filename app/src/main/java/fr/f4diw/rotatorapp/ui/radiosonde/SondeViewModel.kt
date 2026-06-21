@@ -43,10 +43,12 @@ class SondeViewModel(application: Application) : AndroidViewModel(application) {
         val radiusKm = prefs.getInt("tracking_radius", 400).toDouble()
 
         val now = System.currentTimeMillis()
-        val maxAgeMs = 30 * 60 * 1000 // 30 minutes
+        val maxAgeMs = 24 * 60 * 60 * 1000 // 24 heures pour les ballons
 
         val listWithDistance = sondes.mapNotNull { sonde ->
-            val dist = GeoUtils.haversineKm(lat, lon, sonde.lat!!, sonde.lon!!)
+            val sLat = sonde.lat ?: return@mapNotNull null
+            val sLon = sonde.lon ?: return@mapNotNull null
+            val dist = GeoUtils.haversineKm(lat, lon, sLat, sLon)
             
             // Filtrage par distance (déjà fait par l'API mais sécurité)
             if (dist > radiusKm) return@mapNotNull null
@@ -55,11 +57,19 @@ class SondeViewModel(application: Application) : AndroidViewModel(application) {
             val ts = sonde.datetime ?: sonde.timeReceived
             if (ts != null) {
                 try {
-                    val dt = java.time.OffsetDateTime.parse(ts.replace("Z", "+00:00"))
-                    val ageMs = now - dt.toInstant().toEpochMilli()
+                    // Nettoyage de la date pour le parser (accepte espace ou T)
+                    val cleanTs = ts.replace(" ", "T").let {
+                        when {
+                            it.contains(".") -> it.split(".")[0] + "Z"
+                            !it.endsWith("Z") && !it.contains("+") -> it + "Z"
+                            else -> it
+                        }
+                    }
+                    val dt = java.time.Instant.parse(cleanTs)
+                    val ageMs = now - dt.toEpochMilli()
                     if (ageMs > maxAgeMs) return@mapNotNull null
                 } catch (e: Exception) {
-                    // Si on ne peut pas parser, on garde par précaution
+                    // En cas d'erreur de parsing, on garde la sonde par sécurité
                 }
             }
 

@@ -59,7 +59,7 @@ class SondeTrackingFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             sondeViewModel.sondeList.collectLatest { list ->
-                val sonde = list.find { it.sonde.serial == targetSerial }
+                val sonde = list.find { it.sonde.getEffectiveSerial() == targetSerial }
                 sonde?.let { updateUi(it) }
             }
         }
@@ -87,7 +87,7 @@ class SondeTrackingFragment : Fragment() {
         val obsLat = prefs.getFloat("station_lat", 0f).toDouble()
         val obsLon = prefs.getFloat("station_lon", 0f).toDouble()
         
-        binding.tvTitle.text = data.sonde.serial
+        binding.tvTitle.text = data.sonde.getEffectiveSerial()
         
         val azEl = GeoUtils.calculateAzEl(
             obsLat, obsLon, GeoUtils.STATION_ALT,
@@ -101,6 +101,14 @@ class SondeTrackingFragment : Fragment() {
         binding.tvEl.text = "EL: %.1f°".format(currentEl)
         binding.tvSondeDetails.text = "Freq: %s MHz / Alt: %.0f m".format(
             data.sonde.getDisplayFrequency(), data.sonde.alt ?: 0.0)
+
+        // Color feedback on tracking page
+        val iconColor = if (data.sonde.isAmateur) {
+            resources.getColor(R.color.sonde_amateur, null)
+        } else {
+            resources.getColor(R.color.sonde_pro, null)
+        }
+        binding.ivSondeIcon.setColorFilter(iconColor)
     }
 
     private fun updateTrackButtonUi() {
