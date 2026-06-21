@@ -52,7 +52,10 @@ class HomeFragment : Fragment() {
         }
 
         binding.cardRadiosonde.setOnClickListener {
-            Toast.makeText(requireContext(), "Bientôt disponible : Tracking Radiosondes", Toast.LENGTH_SHORT).show()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fr.f4diw.rotatorapp.ui.radiosonde.SondeFragment())
+                .addToBackStack(null)
+                .commit()
         }
     }
 

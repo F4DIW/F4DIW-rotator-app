@@ -15,6 +15,9 @@
     <string name="activity_adsb_sub">Трекинг самолетов</string>
     <string name="activity_radiosonde">Радиозонды</string>
     <string name="activity_radiosonde_sub">Трекинг метеозондов</string>
+    <string name="label_sonde_info">Зонд: %1$s (%2$s МГц)</string>
+    <string name="label_sonde_type">Тип: %1$s</string>
+    <string name="label_sonde_last_seen">Обновлено: %1$s назад</string>
 
     <string name="title_settings">НАСТРОЙКИ</string>
     <string name="settings_bluetooth">Bluetooth</string>

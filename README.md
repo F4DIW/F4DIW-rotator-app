@@ -21,7 +21,10 @@ This app is designed to work specifically with the [F4DIW Rotator Firmware (ESP3
 - **Premium Splash Screen**: Full-screen startup (4s) with integrated logo and radar.
 - **Real-Time Control**: Large AZ/EL display with automatic updates.
 - **Planetary Tracking**: Real-time calculation (via Astronomy Engine) of Sun, Moon, and all solar system planets (including Mercury and Uranus) with NASA visuals.
-- **Data Sources Management**: Configuration of ADS-B and Radiosondes server URLs to prepare for upcoming tracking features.
+- **ADS-B & Radiosonde Tracking**: 
+  - **ADS-B**: Real-time aircraft tracking using TAR1090 data sources with photos.
+  - **Radiosondes**: Professional and Amateur weather balloon tracking via SondeHub v2 API with configurable radius and "in-flight" filtering.
+- **Data Sources Management**: Configuration of ADS-B, Radiosondes URLs, and tracking radius.
 - **Alignment Correction**: Integrated mini-joystick in the tracking screen for fine-tuning the antenna alignment (+/- 0.5° per click) without affecting the displayed astronomical coordinates.
 - **Position Management**: Phone GPS position retrieval and automatic **QTH Locator (Maidenhead)** calculation.
 - **Jog & Reset Calibration System**: 
@@ -104,7 +107,10 @@ Application Android moderne pour le contrôle du rotateur d'antenne satellite **
 - **Splash Screen Premium** : Écran de démarrage plein écran (4s) avec logo et radar intégrés.
 - **Contrôle Temps Réel** : Affichage AZ/EL en gros caractères avec mise à jour automatique.
 - **Tracking Planétaire** : Calcul en temps réel (via Astronomy Engine) de la position du Soleil, de la Lune et de toutes les planètes du système solaire (Mercure et Uranus incluses) avec visuels NASA.
-- **Gestion des Sources de Données** : Configuration des URLs des serveurs ADS-B et Radiosondes pour préparer les futures fonctionnalités de tracking.
+- **Tracking ADS-B & Radiosondes** : 
+  - **ADS-B** : Suivi des avions en temps réel via TAR1090 avec photos réelles.
+  - **Radiosondes** : Suivi des ballons météo professionnels et amateurs via SondeHub v2 avec rayon configurable et filtrage "en vol".
+- **Gestion des Sources de Données** : Configuration des URLs ADS-B, Radiosondes et du rayon de suivi.
 - **Correction de Cadrage** : Mini-joystick intégré à l'écran de tracking pour affiner l'alignement de l'antenne (+/- 0.5° par clic) sans modifier les coordonnées astronomiques affichées.
 - **Gestion de Position** : Récupération de la position GPS du téléphone et calcul automatique du **QTH Locator (Maidenhead)**.
 - **Système de Calibration Jog & Reset** : 

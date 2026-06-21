@@ -266,6 +266,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!-- Background Image -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/system_solaire"
+                    android:scaleType="centerCrop"
+                    android:alpha="0.2"
+                    app:tint="#80000000" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

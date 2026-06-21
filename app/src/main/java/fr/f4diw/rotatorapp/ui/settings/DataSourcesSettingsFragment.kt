@@ -26,8 +26,10 @@ class DataSourcesSettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val prefs = requireContext().getSharedPreferences("settings", Context.MODE_PRIVATE)
-        binding.etAdsbUrl.setText(prefs.getString("url_adsb", "http://192.168.1.100:8080"))
-        binding.etRadiosondeUrl.setText(prefs.getString("url_radiosondes", "http://192.168.1.100:8081"))
+        binding.etAdsbUrl.setText(prefs.getString("url_adsb", "http://82.64.206.3:8504/tar1090"))
+        binding.etRadiosondeUrl.setText(prefs.getString("url_radiosondes", "https://api.v2.sondehub.org"))
+        binding.etTrackingRadius.setText(prefs.getInt("tracking_radius", 400).toString())
+        binding.swAmateurBalloons.isChecked = prefs.getBoolean("include_amateur", true)
 
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -36,10 +38,14 @@ class DataSourcesSettingsFragment : Fragment() {
         binding.btnSave.setOnClickListener {
             val adsb = binding.etAdsbUrl.text.toString()
             val radiosondes = binding.etRadiosondeUrl.text.toString()
+            val radius = binding.etTrackingRadius.text.toString().toIntOrNull() ?: 400
+            val includeAmateur = binding.swAmateurBalloons.isChecked
 
             prefs.edit()
                 .putString("url_adsb", adsb)
                 .putString("url_radiosondes", radiosondes)
+                .putInt("tracking_radius", radius)
+                .putBoolean("include_amateur", includeAmateur)
                 .apply()
 
             Toast.makeText(requireContext(), "Paramètres enregistrés", Toast.LENGTH_SHORT).show()
