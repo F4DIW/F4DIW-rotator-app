@@ -79,19 +79,41 @@ class SondeFragment : Fragment() {
             val item = items[position]
             val context = holder.itemView.context
             
-            holder.binding.tvSondeInfo.text = context.getString(R.string.label_sonde_info, 
-                item.sonde.getEffectiveSerial(), item.sonde.getDisplayFrequency())
-            holder.binding.tvSondeType.text = context.getString(R.string.label_sonde_type, 
-                item.sonde.getDisplayType())
+            if (item.sonde.isAmateur) {
+                holder.binding.tvSondeInfo.text = context.getString(R.string.label_sonde_info_amateur, 
+                    item.sonde.getEffectiveSerial())
+                
+                val mod = item.sonde.modulation ?: ""
+                holder.binding.tvSondeType.text = "${item.sonde.getDisplayFrequency()} MHz $mod".trim()
+
+                // Show icon for HAB
+                holder.binding.ivSonde.visibility = View.VISIBLE
+                holder.binding.tvRsLabel.visibility = View.GONE
+            } else {
+                holder.binding.tvSondeInfo.text = context.getString(R.string.label_sonde_info_pro, 
+                    item.sonde.getDisplayType(), item.sonde.getEffectiveSerial())
+                holder.binding.tvSondeType.text = context.getString(R.string.label_sonde_freq, 
+                    item.sonde.getDisplayFrequency())
+
+                // Show "RS" text for PRO
+                holder.binding.ivSonde.visibility = View.GONE
+                holder.binding.tvRsLabel.visibility = View.VISIBLE
+            }
+
             holder.binding.tvDistance.text = "%.1f km".format(item.distanceKm)
 
-            // Change color based on type
-            val bgColor = if (item.sonde.isAmateur) {
-                context.getColor(R.color.sonde_amateur)
+            // Change background image based on type
+            val bgResId = if (item.sonde.isAmateur) {
+                context.resources.getIdentifier("sonde_amateur_list_bg", "drawable", context.packageName)
             } else {
-                context.getColor(R.color.sonde_pro)
+                context.resources.getIdentifier("sonde_pro_list_bg", "drawable", context.packageName)
             }
-            holder.binding.cardSonde.setCardBackgroundColor(bgColor)
+
+            if (bgResId != 0) {
+                holder.binding.ivSondeBg.setImageResource(bgResId)
+            } else {
+                holder.binding.ivSondeBg.setImageDrawable(null)
+            }
             
             holder.binding.cardSonde.setOnClickListener { onClick(item) }
         }

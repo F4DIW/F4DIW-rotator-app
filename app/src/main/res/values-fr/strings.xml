@@ -15,7 +15,9 @@
     <string name="activity_adsb_sub">Tracking Avions</string>
     <string name="activity_radiosonde">Radiosondes</string>
     <string name="activity_radiosonde_sub">Tracking Ballons Météo</string>
-    <string name="label_sonde_info">Sonde: %1$s (%2$s MHz)</string>
+    <string name="label_sonde_info_pro">%1$s : %2$s</string>
+    <string name="label_sonde_info_amateur">HAB : %1$s</string>
+    <string name="label_sonde_freq">%1$s MHz</string>
     <string name="label_sonde_type">Type: %1$s</string>
     <string name="label_sonde_last_seen">Vu il y a : %1$s</string>
 
@@ -33,7 +35,9 @@
     <string name="label_adsb_url">Serveur ADS-B (URL ou IP)</string>
     <string name="label_adsb_url_sub">Emplacement du fichier aircraft.json de TAR1090</string>
     <string name="label_radiosonde_url">Serveur Radiosondes (URL ou IP)</string>
+    <string name="title_hab_radiosondes">HAB &amp; RADIOSONDES</string>
     <string name="label_tracking_radius">Rayon de suivi (km)</string>
+    <string name="settings_show_below_horizon">Afficher les éléments sous l\'horizon (EL &lt; 0°)</string>
     <string name="hint_radius">Ex: 400</string>
     <string name="settings_amateur_balloons">Inclure Ballons Amateurs</string>
     <string name="hint_url">http://192.168.1.x:xxxx</string>

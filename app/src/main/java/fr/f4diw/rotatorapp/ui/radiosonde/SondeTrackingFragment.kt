@@ -99,16 +99,19 @@ class SondeTrackingFragment : Fragment() {
 
         binding.tvAz.text = "AZ: %.1f°".format(currentAz)
         binding.tvEl.text = "EL: %.1f°".format(currentEl)
-        binding.tvSondeDetails.text = "Freq: %s MHz / Alt: %.0f m".format(
-            data.sonde.getDisplayFrequency(), data.sonde.alt ?: 0.0)
+        val mod = if (data.sonde.isAmateur) data.sonde.modulation ?: "" else ""
+        binding.tvSondeDetails.text = "Freq: %s MHz %s / Alt: %.0f m".format(
+            data.sonde.getDisplayFrequency(), mod, data.sonde.alt ?: 0.0).trim()
 
-        // Color feedback on tracking page
-        val iconColor = if (data.sonde.isAmateur) {
-            resources.getColor(R.color.sonde_amateur, null)
+        // Set background image
+        val bgResId = if (data.sonde.isAmateur) {
+            resources.getIdentifier("sonde_amateur_list_bg", "drawable", requireContext().packageName)
         } else {
-            resources.getColor(R.color.sonde_pro, null)
+            resources.getIdentifier("sonde_pro_list_bg", "drawable", requireContext().packageName)
         }
-        binding.ivSondeIcon.setColorFilter(iconColor)
+        if (bgResId != 0) {
+            binding.ivTrackingBg.setImageResource(bgResId)
+        }
     }
 
     private fun updateTrackButtonUi() {

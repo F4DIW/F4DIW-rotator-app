@@ -77,7 +77,16 @@
                     android:backgroundTint="@color/accent_blue"
                     android:inputType="textUri"
                     android:maxLines="1"
-                    android:layout_marginBottom="24dp" />
+                    android:layout_marginBottom="32dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_hab_radiosondes"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -98,6 +107,14 @@
                     android:inputType="number"
                     android:maxLines="1"
                     android:layout_marginBottom="24dp" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swShowBelowHorizon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_show_below_horizon"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="16dp" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/swAmateurBalloons"

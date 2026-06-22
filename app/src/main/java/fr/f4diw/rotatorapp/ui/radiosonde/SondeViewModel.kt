@@ -41,6 +41,7 @@ class SondeViewModel(application: Application) : AndroidViewModel(application) {
         val lat = prefs.getFloat("station_lat", 0f).toDouble()
         val lon = prefs.getFloat("station_lon", 0f).toDouble()
         val radiusKm = prefs.getInt("tracking_radius", 400).toDouble()
+        val showBelowHorizon = prefs.getBoolean("show_below_horizon", true)
 
         val now = System.currentTimeMillis()
         val maxAgeMs = 24 * 60 * 60 * 1000 // 24 heures pour les ballons
@@ -52,6 +53,10 @@ class SondeViewModel(application: Application) : AndroidViewModel(application) {
             
             // Filtrage par distance (déjà fait par l'API mais sécurité)
             if (dist > radiusKm) return@mapNotNull null
+
+            // Calcul élévation pour le filtrage
+            val azEl = GeoUtils.calculateAzEl(lat, lon, GeoUtils.STATION_ALT, sLat, sLon, sonde.alt ?: 0.0)
+            if (!showBelowHorizon && azEl.second < 0.0) return@mapNotNull null
             
             // Filtrage par âge (en vol / données récentes)
             val ts = sonde.datetime ?: sonde.timeReceived

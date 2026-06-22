@@ -5,184 +5,194 @@
     android:layout_height="match_parent"
     android:background="@color/bg_main">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:gravity="center_horizontal">
+        android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnBack"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:text="◀"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="FLIGHT NAME"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
+        <!-- Background Image -->
         <ImageView
             android:id="@+id/ivAircraftIcon"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:src="@android:drawable/ic_menu_send"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="32dp" />
+            android:alpha="0.5" />
 
-        <!-- Position Card -->
-        <com.google.android.material.card.MaterialCardView
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="24dp"
-            app:cardBackgroundColor="@color/bg_card"
-            app:strokeColor="@color/grid_blue"
-            app:strokeWidth="1dp"
-            android:layout_marginBottom="24dp">
+            android:layout_height="280dp"
+            android:background="#80000000" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tvAz"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="AZ: 000.0°"
-                    android:textColor="@color/white"
-                    android:textSize="36sp"
-                    android:fontFamily="monospace"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvEl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EL: 00.0°"
-                    android:textColor="@color/accent_blue"
-                    android:textSize="32sp"
-                    android:fontFamily="monospace"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:id="@+id/tvDistAlt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dist: -- km / Alt: -- m"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Alignment Correction -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="32dp">
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center_horizontal">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:layout_marginBottom="160dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBack"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="◀"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_correction"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="10sp"
+                    android:layout_centerInParent="true"
+                    android:text="FLIGHT NAME"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- Position Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="@color/bg_card"
+                app:strokeColor="@color/grid_blue"
+                app:strokeWidth="1dp"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvAz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AZ: 000.0°"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvEl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EL: 00.0°"
+                        android:textColor="@color/accent_blue"
+                        android:textSize="32sp"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/tvDistAlt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dist: -- km / Alt: -- m"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <!-- Alignment Correction -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="32dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_correction"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp" />
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:columnCount="3"
+                        android:rowCount="3">
+
+                        <View android:layout_width="32dp" android:layout_height="32dp" />
+                        <ImageButton
+                            android:id="@+id/btnJogUp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/arrow_up_float"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:tint="@color/white" />
+                        <View android:layout_width="32dp" android:layout_height="32dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnJogLeft"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/arrow_up_float"
+                            android:rotation="270"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:tint="@color/white" />
+                        <View android:layout_width="32dp" android:layout_height="32dp" />
+                        <ImageButton
+                            android:id="@+id/btnJogRight"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/arrow_up_float"
+                            android:rotation="90"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:tint="@color/white" />
+
+                        <View android:layout_width="32dp" android:layout_height="32dp" />
+                        <ImageButton
+                            android:id="@+id/btnJogDown"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/arrow_up_float"
+                            android:rotation="180"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            app:tint="@color/white" />
+                        <View android:layout_width="32dp" android:layout_height="32dp" />
+                    </GridLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTrack"
+                    android:layout_width="140dp"
+                    android:layout_height="56dp"
+                    android:text="@string/btn_track"
+                    app:cornerRadius="16dp"
+                    android:backgroundTint="@color/status_connected"
+                    android:textColor="@color/bg_main"
                     android:textStyle="bold"
-                    android:layout_marginBottom="8dp" />
-
-                <GridLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:columnCount="3"
-                    android:rowCount="3">
-
-                    <View android:layout_width="32dp" android:layout_height="32dp" />
-                    <ImageButton
-                        android:id="@+id/btnJogUp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/arrow_up_float"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:tint="@color/white" />
-                    <View android:layout_width="32dp" android:layout_height="32dp" />
-
-                    <ImageButton
-                        android:id="@+id/btnJogLeft"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/arrow_up_float"
-                        android:rotation="270"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:tint="@color/white" />
-                    <View android:layout_width="32dp" android:layout_height="32dp" />
-                    <ImageButton
-                        android:id="@+id/btnJogRight"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/arrow_up_float"
-                        android:rotation="90"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:tint="@color/white" />
-
-                    <View android:layout_width="32dp" android:layout_height="32dp" />
-                    <ImageButton
-                        android:id="@+id/btnJogDown"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@android:drawable/arrow_up_float"
-                        android:rotation="180"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        app:tint="@color/white" />
-                    <View android:layout_width="32dp" android:layout_height="32dp" />
-                </GridLayout>
+                    android:textSize="16sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnTrack"
-                android:layout_width="140dp"
-                android:layout_height="56dp"
-                android:text="@string/btn_track"
-                app:cornerRadius="16dp"
-                android:backgroundTint="@color/status_connected"
-                android:textColor="@color/bg_main"
-                android:textStyle="bold"
-                android:textSize="16sp" />
         </LinearLayout>
-
-    </LinearLayout>
+    </FrameLayout>
 </ScrollView>

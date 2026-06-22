@@ -21,8 +21,9 @@ data class Sonde(
     val datetime: String? = null,
     @SerializedName("time_received") val timeReceived: String? = null,
     
-    val freq: Double? = null,
-    val frequency: Double? = null,
+    @SerializedName("freq") val freq: Any? = null,
+    @SerializedName("frequency") val frequency: Any? = null,
+    val modulation: String? = null,
     
     var isAmateur: Boolean = false
 ) {
@@ -31,7 +32,11 @@ data class Sonde(
     }
 
     fun getDisplayFrequency(): String {
-        val f = freq ?: frequency ?: return "--"
+        val f = when (val raw = freq ?: frequency) {
+            is Number -> raw.toDouble()
+            is String -> raw.toDoubleOrNull()
+            else -> null
+        } ?: return "--"
         return "%.3f".format(f)
     }
 

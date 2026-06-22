@@ -29,6 +29,7 @@ class DataSourcesSettingsFragment : Fragment() {
         binding.etAdsbUrl.setText(prefs.getString("url_adsb", "http://82.64.206.3:8504/tar1090"))
         binding.etTrackingRadius.setText(prefs.getInt("tracking_radius", 400).toString())
         binding.swAmateurBalloons.isChecked = prefs.getBoolean("include_amateur", true)
+        binding.swShowBelowHorizon.isChecked = prefs.getBoolean("show_below_horizon", true)
 
         binding.btnBack.setOnClickListener {
             parentFragmentManager.popBackStack()
@@ -38,11 +39,13 @@ class DataSourcesSettingsFragment : Fragment() {
             val adsb = binding.etAdsbUrl.text.toString()
             val radius = binding.etTrackingRadius.text.toString().toIntOrNull() ?: 400
             val includeAmateur = binding.swAmateurBalloons.isChecked
+            val showBelowHorizon = binding.swShowBelowHorizon.isChecked
 
             prefs.edit()
                 .putString("url_adsb", adsb)
                 .putInt("tracking_radius", radius)
                 .putBoolean("include_amateur", includeAmateur)
+                .putBoolean("show_below_horizon", showBelowHorizon)
                 .apply()
 
             Toast.makeText(requireContext(), "Paramètres enregistrés", Toast.LENGTH_SHORT).show()
